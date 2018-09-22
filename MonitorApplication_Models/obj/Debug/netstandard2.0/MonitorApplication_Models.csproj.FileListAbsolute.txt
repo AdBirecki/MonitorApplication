@@ -1,0 +1,14 @@
+C:\Users\Adam\Source\Repos\MonitorApplication\MonitorApplication_Models\bin\Debug\netstandard2.0\MonitorApplication_Models.deps.json
+C:\Users\Adam\Source\Repos\MonitorApplication\MonitorApplication_Models\bin\Debug\netstandard2.0\MonitorApplication_Models.dll
+C:\Users\Adam\Source\Repos\MonitorApplication\MonitorApplication_Models\bin\Debug\netstandard2.0\MonitorApplication_Models.pdb
+C:\Users\Adam\Source\Repos\MonitorApplication\MonitorApplication_Models\bin\Debug\netstandard2.0\Microsoft.AspNetCore.Mvc.Core.dll
+C:\Users\Adam\Source\Repos\MonitorApplication\MonitorApplication_Models\bin\Debug\netstandard2.0\Microsoft.AspNetCore.Mvc.Core.xml
+C:\Users\Adam\Source\Repos\MonitorApplication\MonitorApplication_Models\obj\Debug\netstandard2.0\MonitorApplication_Models.csprojAssemblyReference.cache
+C:\Users\Adam\Source\Repos\MonitorApplication\MonitorApplication_Models\obj\Debug\netstandard2.0\MonitorApplication_Models.csproj.CoreCompileInputs.cache
+C:\Users\Adam\Source\Repos\MonitorApplication\MonitorApplication_Models\obj\Debug\netstandard2.0\MonitorApplication_Models.AssemblyInfoInputs.cache
+C:\Users\Adam\Source\Repos\MonitorApplication\MonitorApplication_Models\obj\Debug\netstandard2.0\MonitorApplication_Models.AssemblyInfo.cs
+C:\Users\Adam\Source\Repos\MonitorApplication\MonitorApplication_Models\obj\Debug\netstandard2.0\MonitorApplication_Models.csproj.CopyComplete
+C:\Users\Adam\Source\Repos\MonitorApplication\MonitorApplication_Models\obj\Debug\netstandard2.0\MonitorApplication_Models.dll
+C:\Users\Adam\Source\Repos\MonitorApplication\MonitorApplication_Models\obj\Debug\netstandard2.0\MonitorApplication_Models.pdb
+C:\Users\Adam\Source\Repos\MonitorApplication\MonitorApplication_Models\bin\Debug\netstandard2.0\Newtonsoft.Json.dll
+C:\Users\Adam\Source\Repos\MonitorApplication\MonitorApplication_Models\bin\Debug\netstandard2.0\Newtonsoft.Json.xml

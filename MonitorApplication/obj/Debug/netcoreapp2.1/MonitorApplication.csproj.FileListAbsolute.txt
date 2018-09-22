@@ -1,0 +1,17 @@
+C:\Users\Adam\Source\Repos\MonitorApplication\MonitorApplication\bin\Debug\netcoreapp2.1\MonitorApplication.deps.json
+C:\Users\Adam\Source\Repos\MonitorApplication\MonitorApplication\bin\Debug\netcoreapp2.1\MonitorApplication.runtimeconfig.json
+C:\Users\Adam\Source\Repos\MonitorApplication\MonitorApplication\bin\Debug\netcoreapp2.1\MonitorApplication.runtimeconfig.dev.json
+C:\Users\Adam\Source\Repos\MonitorApplication\MonitorApplication\bin\Debug\netcoreapp2.1\MonitorApplication.dll
+C:\Users\Adam\Source\Repos\MonitorApplication\MonitorApplication\obj\Debug\netcoreapp2.1\MonitorApplication.csprojAssemblyReference.cache
+C:\Users\Adam\Source\Repos\MonitorApplication\MonitorApplication\obj\Debug\netcoreapp2.1\MonitorApplication.csproj.CoreCompileInputs.cache
+C:\Users\Adam\Source\Repos\MonitorApplication\MonitorApplication\obj\Debug\netcoreapp2.1\MonitorApplication.RazorAssemblyInfo.cache
+C:\Users\Adam\Source\Repos\MonitorApplication\MonitorApplication\obj\Debug\netcoreapp2.1\MonitorApplication.RazorAssemblyInfo.cs
+C:\Users\Adam\Source\Repos\MonitorApplication\MonitorApplication\obj\Debug\netcoreapp2.1\MonitorApplication.AssemblyInfoInputs.cache
+C:\Users\Adam\Source\Repos\MonitorApplication\MonitorApplication\obj\Debug\netcoreapp2.1\MonitorApplication.AssemblyInfo.cs
+C:\Users\Adam\Source\Repos\MonitorApplication\MonitorApplication\obj\Debug\netcoreapp2.1\MonitorApplication.RazorTargetAssemblyInfo.cache
+C:\Users\Adam\Source\Repos\MonitorApplication\MonitorApplication\bin\Debug\netcoreapp2.1\MonitorApplication_Models.dll
+C:\Users\Adam\Source\Repos\MonitorApplication\MonitorApplication\bin\Debug\netcoreapp2.1\MonitorApplication.pdb
+C:\Users\Adam\Source\Repos\MonitorApplication\MonitorApplication\bin\Debug\netcoreapp2.1\MonitorApplication_Models.pdb
+C:\Users\Adam\Source\Repos\MonitorApplication\MonitorApplication\obj\Debug\netcoreapp2.1\MonitorApplication.csproj.CopyComplete
+C:\Users\Adam\Source\Repos\MonitorApplication\MonitorApplication\obj\Debug\netcoreapp2.1\MonitorApplication.dll
+C:\Users\Adam\Source\Repos\MonitorApplication\MonitorApplication\obj\Debug\netcoreapp2.1\MonitorApplication.pdb

@@ -1,0 +1,6 @@
+C:\Users\Adam\Source\Repos\MonitorApplication\MonitorApplication_DAL\bin\Debug\netstandard2.0\MonitorApplication_DAL.deps.json
+C:\Users\Adam\Source\Repos\MonitorApplication\MonitorApplication_DAL\bin\Debug\netstandard2.0\MonitorApplication_DAL.dll
+C:\Users\Adam\Source\Repos\MonitorApplication\MonitorApplication_DAL\obj\Debug\netstandard2.0\MonitorApplication_DAL.csprojAssemblyReference.cache
+C:\Users\Adam\Source\Repos\MonitorApplication\MonitorApplication_DAL\obj\Debug\netstandard2.0\MonitorApplication_DAL.csproj.CoreCompileInputs.cache
+C:\Users\Adam\Source\Repos\MonitorApplication\MonitorApplication_DAL\obj\Debug\netstandard2.0\MonitorApplication_DAL.AssemblyInfoInputs.cache
+C:\Users\Adam\Source\Repos\MonitorApplication\MonitorApplication_DAL\obj\Debug\netstandard2.0\MonitorApplication_DAL.AssemblyInfo.cs
