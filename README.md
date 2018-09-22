@@ -1,2 +1,2 @@
 # MonitorApplication
-Some fun with rest sharp. Maybe more in the future
+Some fun with RestSharp. Maybe more in the future
