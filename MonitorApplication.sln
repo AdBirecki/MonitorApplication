@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2016
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonitorApplication", "MonitorApplication\MonitorApplication.csproj", "{2466F573-F54E-4DBF-B016-CED15D0EA1E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonitorApplication", "MonitorApplication\MonitorApplication.csproj", "{2466F573-F54E-4DBF-B016-CED15D0EA1E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonitorApplication_DAL", "MonitorApplication_DAL\MonitorApplication_DAL.csproj", "{162282D9-5873-4263-9D40-9BB1B34B4449}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonitorApplication_DAL", "MonitorApplication_DAL\MonitorApplication_DAL.csproj", "{162282D9-5873-4263-9D40-9BB1B34B4449}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonitorApplication_SL", "MonitorApplication_SL\MonitorApplication_SL.csproj", "{AD9F1DE7-DB76-4F24-854E-3818DBFE5F73}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonitorApplication_SL", "MonitorApplication_SL\MonitorApplication_SL.csproj", "{AD9F1DE7-DB76-4F24-854E-3818DBFE5F73}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonitorApplication_DAL_L", "MonitorApplication_DAL_L\MonitorApplication_DAL_L.csproj", "{3E953DAB-EAC6-4399-8157-7566B6168180}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonitorApplication_DAL_L", "MonitorApplication_DAL_L\MonitorApplication_DAL_L.csproj", "{3E953DAB-EAC6-4399-8157-7566B6168180}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonitorApplication_Models", "MonitorApplication_Models\MonitorApplication_Models.csproj", "{C80725F8-9F36-47A3-A28B-C25781E13519}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonitorApplication_Models", "MonitorApplication_Models\MonitorApplication_Models.csproj", "{C80725F8-9F36-47A3-A28B-C25781E13519}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonitorApplication_Utilities", "MonitorApplicationUtilities\MonitorApplication_Utilities.csproj", "{2FD7DFF6-347B-49C7-8518-D87DA461D846}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{C80725F8-9F36-47A3-A28B-C25781E13519}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C80725F8-9F36-47A3-A28B-C25781E13519}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C80725F8-9F36-47A3-A28B-C25781E13519}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FD7DFF6-347B-49C7-8518-D87DA461D846}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FD7DFF6-347B-49C7-8518-D87DA461D846}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FD7DFF6-347B-49C7-8518-D87DA461D846}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FD7DFF6-347B-49C7-8518-D87DA461D846}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

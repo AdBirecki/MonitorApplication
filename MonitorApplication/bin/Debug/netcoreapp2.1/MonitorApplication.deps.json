@@ -28,6 +28,7 @@
           "Microsoft.AspNetCore.App": "2.1.1",
           "Microsoft.NETCore.App": "2.1.0",
           "MonitorApplication_Models": "1.0.0",
+          "MonitorApplication_Utilities": "1.0.0",
           "RestSharp": "106.4.1"
         },
         "runtime": {
@@ -255,11 +256,26 @@
         }
       },
       "MonitorApplication_Models/1.0.0": {
+        "dependencies": {
+          "MonitorApplication_Utilities": "1.0.0",
+          "Newtonsoft.Json": "11.0.2"
+        },
         "runtime": {
           "MonitorApplication_Models.dll": {}
         },
         "compile": {
           "MonitorApplication_Models.dll": {}
+        }
+      },
+      "MonitorApplication_Utilities/1.0.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "11.0.2"
+        },
+        "runtime": {
+          "MonitorApplication_Utilities.dll": {}
+        },
+        "compile": {
+          "MonitorApplication_Utilities.dll": {}
         }
       },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
@@ -3291,6 +3307,11 @@
       "hashPath": "system.componentmodel.4.0.1.nupkg.sha512"
     },
     "MonitorApplication_Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MonitorApplication_Utilities/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

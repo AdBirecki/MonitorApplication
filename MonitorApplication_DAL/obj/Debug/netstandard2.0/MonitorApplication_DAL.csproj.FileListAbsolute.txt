@@ -4,3 +4,11 @@ C:\Users\Adam\Source\Repos\MonitorApplication\MonitorApplication_DAL\obj\Debug\n
 C:\Users\Adam\Source\Repos\MonitorApplication\MonitorApplication_DAL\obj\Debug\netstandard2.0\MonitorApplication_DAL.csproj.CoreCompileInputs.cache
 C:\Users\Adam\Source\Repos\MonitorApplication\MonitorApplication_DAL\obj\Debug\netstandard2.0\MonitorApplication_DAL.AssemblyInfoInputs.cache
 C:\Users\Adam\Source\Repos\MonitorApplication\MonitorApplication_DAL\obj\Debug\netstandard2.0\MonitorApplication_DAL.AssemblyInfo.cs
+F:\MonitorApplication\MonitorApplication_DAL\bin\Debug\netstandard2.0\MonitorApplication_DAL.deps.json
+F:\MonitorApplication\MonitorApplication_DAL\bin\Debug\netstandard2.0\MonitorApplication_DAL.dll
+F:\MonitorApplication\MonitorApplication_DAL\bin\Debug\netstandard2.0\MonitorApplication_DAL.pdb
+F:\MonitorApplication\MonitorApplication_DAL\obj\Debug\netstandard2.0\MonitorApplication_DAL.csproj.CoreCompileInputs.cache
+F:\MonitorApplication\MonitorApplication_DAL\obj\Debug\netstandard2.0\MonitorApplication_DAL.AssemblyInfoInputs.cache
+F:\MonitorApplication\MonitorApplication_DAL\obj\Debug\netstandard2.0\MonitorApplication_DAL.AssemblyInfo.cs
+F:\MonitorApplication\MonitorApplication_DAL\obj\Debug\netstandard2.0\MonitorApplication_DAL.dll
+F:\MonitorApplication\MonitorApplication_DAL\obj\Debug\netstandard2.0\MonitorApplication_DAL.pdb

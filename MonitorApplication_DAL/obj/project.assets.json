@@ -182,11 +182,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Adam\\Source\\Repos\\MonitorApplication\\MonitorApplication_DAL\\MonitorApplication_DAL.csproj",
+      "projectUniqueName": "F:\\MonitorApplication\\MonitorApplication_DAL\\MonitorApplication_DAL.csproj",
       "projectName": "MonitorApplication_DAL",
-      "projectPath": "C:\\Users\\Adam\\Source\\Repos\\MonitorApplication\\MonitorApplication_DAL\\MonitorApplication_DAL.csproj",
+      "projectPath": "F:\\MonitorApplication\\MonitorApplication_DAL\\MonitorApplication_DAL.csproj",
       "packagesPath": "C:\\Users\\Adam\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Adam\\Source\\Repos\\MonitorApplication\\MonitorApplication_DAL\\obj\\",
+      "outputPath": "F:\\MonitorApplication\\MonitorApplication_DAL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

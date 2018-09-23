@@ -21,7 +21,7 @@ namespace MonitorApplication.Controllers
             IRestRequest request = new RestRequest("dbXRates/{currency}", Method.GET);
             request.AddUrlSegment("currency", "USD");
 
-            IRestResponse<GoldDataDTO> response = client.Execute<GoldDataDTO>(request);
+            IRestResponse<GoldDataDTO> response = client.Execute<GoldDataDTO>(request);  
             GoldDataDTO goldData = JsonConvert.DeserializeObject<GoldDataDTO>(response.Content);
 
             return Ok(response.Data);

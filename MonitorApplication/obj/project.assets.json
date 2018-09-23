@@ -4384,11 +4384,28 @@
       "MonitorApplication_Models/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "MonitorApplication_Utilities": "1.0.0",
+          "Newtonsoft.json": "11.0.2"
+        },
         "compile": {
           "bin/placeholder/MonitorApplication_Models.dll": {}
         },
         "runtime": {
           "bin/placeholder/MonitorApplication_Models.dll": {}
+        }
+      },
+      "MonitorApplication_Utilities/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "Newtonsoft.json": "11.0.2"
+        },
+        "compile": {
+          "bin/placeholder/MonitorApplication_Utilities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MonitorApplication_Utilities.dll": {}
         }
       }
     }
@@ -11653,6 +11670,11 @@
       "type": "project",
       "path": "../MonitorApplication_Models/MonitorApplication_Models.csproj",
       "msbuildProject": "../MonitorApplication_Models/MonitorApplication_Models.csproj"
+    },
+    "MonitorApplication_Utilities/1.0.0": {
+      "type": "project",
+      "path": "../MonitorApplicationUtilities/MonitorApplication_Utilities.csproj",
+      "msbuildProject": "../MonitorApplicationUtilities/MonitorApplication_Utilities.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -11661,6 +11683,7 @@
       "Microsoft.AspNetCore.App >= 2.1.1",
       "Microsoft.NETCore.App >= 2.1.0",
       "MonitorApplication_Models >= 1.0.0",
+      "MonitorApplication_Utilities >= 1.0.0",
       "RestSharp >= 106.4.1"
     ]
   },
@@ -11671,11 +11694,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Adam\\Source\\Repos\\MonitorApplication\\MonitorApplication\\MonitorApplication.csproj",
+      "projectUniqueName": "F:\\MonitorApplication\\MonitorApplication\\MonitorApplication.csproj",
       "projectName": "MonitorApplication",
-      "projectPath": "C:\\Users\\Adam\\Source\\Repos\\MonitorApplication\\MonitorApplication\\MonitorApplication.csproj",
+      "projectPath": "F:\\MonitorApplication\\MonitorApplication\\MonitorApplication.csproj",
       "packagesPath": "C:\\Users\\Adam\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Adam\\Source\\Repos\\MonitorApplication\\MonitorApplication\\obj\\",
+      "outputPath": "F:\\MonitorApplication\\MonitorApplication\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -11694,8 +11717,11 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\Adam\\Source\\Repos\\MonitorApplication\\MonitorApplication_Models\\MonitorApplication_Models.csproj": {
-              "projectPath": "C:\\Users\\Adam\\Source\\Repos\\MonitorApplication\\MonitorApplication_Models\\MonitorApplication_Models.csproj"
+            "F:\\MonitorApplication\\MonitorApplicationUtilities\\MonitorApplication_Utilities.csproj": {
+              "projectPath": "F:\\MonitorApplication\\MonitorApplicationUtilities\\MonitorApplication_Utilities.csproj"
+            },
+            "F:\\MonitorApplication\\MonitorApplication_Models\\MonitorApplication_Models.csproj": {
+              "projectPath": "F:\\MonitorApplication\\MonitorApplication_Models\\MonitorApplication_Models.csproj"
             }
           }
         }
