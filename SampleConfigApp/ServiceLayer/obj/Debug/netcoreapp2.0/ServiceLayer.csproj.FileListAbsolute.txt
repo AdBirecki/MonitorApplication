@@ -1,0 +1,9 @@
+C:\Users\bireckia\source\repos\WebApplication3\ServiceLayer\bin\Debug\netcoreapp2.0\ServiceLayer.deps.json
+C:\Users\bireckia\source\repos\WebApplication3\ServiceLayer\bin\Debug\netcoreapp2.0\ServiceLayer.dll
+C:\Users\bireckia\source\repos\WebApplication3\ServiceLayer\obj\Debug\netcoreapp2.0\ServiceLayer.csproj.CoreCompileInputs.cache
+C:\Users\bireckia\source\repos\WebApplication3\ServiceLayer\obj\Debug\netcoreapp2.0\ServiceLayer.AssemblyInfoInputs.cache
+C:\Users\bireckia\source\repos\WebApplication3\ServiceLayer\obj\Debug\netcoreapp2.0\ServiceLayer.AssemblyInfo.cs
+C:\Users\bireckia\source\repos\WebApplication3\ServiceLayer\bin\Debug\netcoreapp2.0\ServiceLayer.pdb
+C:\Users\bireckia\source\repos\WebApplication3\ServiceLayer\obj\Debug\netcoreapp2.0\ServiceLayer.csprojAssemblyReference.cache
+C:\Users\bireckia\source\repos\WebApplication3\ServiceLayer\obj\Debug\netcoreapp2.0\ServiceLayer.dll
+C:\Users\bireckia\source\repos\WebApplication3\ServiceLayer\obj\Debug\netcoreapp2.0\ServiceLayer.pdb
