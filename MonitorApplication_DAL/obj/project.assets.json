@@ -176,23 +176,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\bireckia\\.nuget\\packages\\": {},
+    "C:\\Users\\Adam\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\MonitorApplication\\MonitorApplication_DAL\\MonitorApplication_DAL.csproj",
+      "projectUniqueName": "F:\\MonitorApplication\\MonitorApplication_DAL\\MonitorApplication_DAL.csproj",
       "projectName": "MonitorApplication_DAL",
-      "projectPath": "D:\\MonitorApplication\\MonitorApplication_DAL\\MonitorApplication_DAL.csproj",
-      "packagesPath": "C:\\Users\\bireckia\\.nuget\\packages\\",
-      "outputPath": "D:\\MonitorApplication\\MonitorApplication_DAL\\obj\\",
+      "projectPath": "F:\\MonitorApplication\\MonitorApplication_DAL\\MonitorApplication_DAL.csproj",
+      "packagesPath": "C:\\Users\\Adam\\.nuget\\packages\\",
+      "outputPath": "F:\\MonitorApplication\\MonitorApplication_DAL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\bireckia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Adam\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

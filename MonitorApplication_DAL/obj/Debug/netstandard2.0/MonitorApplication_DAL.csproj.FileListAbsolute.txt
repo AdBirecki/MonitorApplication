@@ -12,3 +12,4 @@ F:\MonitorApplication\MonitorApplication_DAL\obj\Debug\netstandard2.0\MonitorApp
 F:\MonitorApplication\MonitorApplication_DAL\obj\Debug\netstandard2.0\MonitorApplication_DAL.AssemblyInfo.cs
 F:\MonitorApplication\MonitorApplication_DAL\obj\Debug\netstandard2.0\MonitorApplication_DAL.dll
 F:\MonitorApplication\MonitorApplication_DAL\obj\Debug\netstandard2.0\MonitorApplication_DAL.pdb
+F:\MonitorApplication\MonitorApplication_DAL\obj\Debug\netstandard2.0\MonitorApplication_DAL.csprojAssemblyReference.cache

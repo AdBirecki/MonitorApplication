@@ -1,0 +1,9 @@
+F:\MonitorApplication\MonitorApplication_DAL_L\bin\Debug\netstandard2.0\MonitorApplication_DAL_L.deps.json
+F:\MonitorApplication\MonitorApplication_DAL_L\bin\Debug\netstandard2.0\MonitorApplication_DAL_L.dll
+F:\MonitorApplication\MonitorApplication_DAL_L\bin\Debug\netstandard2.0\MonitorApplication_DAL_L.pdb
+F:\MonitorApplication\MonitorApplication_DAL_L\obj\Debug\netstandard2.0\MonitorApplication_DAL_L.csproj.CoreCompileInputs.cache
+F:\MonitorApplication\MonitorApplication_DAL_L\obj\Debug\netstandard2.0\MonitorApplication_DAL_L.AssemblyInfoInputs.cache
+F:\MonitorApplication\MonitorApplication_DAL_L\obj\Debug\netstandard2.0\MonitorApplication_DAL_L.AssemblyInfo.cs
+F:\MonitorApplication\MonitorApplication_DAL_L\obj\Debug\netstandard2.0\MonitorApplication_DAL_L.dll
+F:\MonitorApplication\MonitorApplication_DAL_L\obj\Debug\netstandard2.0\MonitorApplication_DAL_L.pdb
+F:\MonitorApplication\MonitorApplication_DAL_L\obj\Debug\netstandard2.0\MonitorApplication_DAL_L.csprojAssemblyReference.cache

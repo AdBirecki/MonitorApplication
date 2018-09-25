@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using MonitorApplication.Controllers.BaseControllers;
 using MonitorApplication_Models;
 using Newtonsoft.Json;
 using RestSharp;
@@ -11,7 +12,7 @@ namespace MonitorApplication.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class ValuesController : ApiBaseController
     {
         // GET api/values
         [HttpGet]
@@ -22,10 +23,9 @@ namespace MonitorApplication.Controllers
             request.AddUrlSegment("currency", "USD");
 
             IRestResponse<GoldDataDTO> response = client.Execute<GoldDataDTO>(request);
-
             
             GoldDataDTO goldData = JsonConvert.DeserializeObject<GoldDataDTO>(response.Content);
-            DateTime dt = UnixTimeStampToDateTime(goldData.ts);
+           //  DateTime dt = UnixTimeStampToDateTime(goldData.ts);
             return Ok(response.Data);
         }
 
@@ -52,14 +52,6 @@ namespace MonitorApplication.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-        }
-
-        public static DateTime UnixTimeStampToDateTime(long unixTimeStamp)
-        {
-            // Unix timestamp is seconds past epoch
-            DateTime myDate = new DateTime(unixTimeStamp);
-            string test = myDate.ToString("MMMM dd, yyyy");
-            return myDate;
         }
     }
 }
