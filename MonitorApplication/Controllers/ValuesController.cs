@@ -21,9 +21,11 @@ namespace MonitorApplication.Controllers
             IRestRequest request = new RestRequest("dbXRates/{currency}", Method.GET);
             request.AddUrlSegment("currency", "USD");
 
-            IRestResponse<GoldDataDTO> response = client.Execute<GoldDataDTO>(request);  
-            GoldDataDTO goldData = JsonConvert.DeserializeObject<GoldDataDTO>(response.Content);
+            IRestResponse<GoldDataDTO> response = client.Execute<GoldDataDTO>(request);
 
+            
+            GoldDataDTO goldData = JsonConvert.DeserializeObject<GoldDataDTO>(response.Content);
+            DateTime dt = UnixTimeStampToDateTime(goldData.ts);
             return Ok(response.Data);
         }
 
@@ -50,6 +52,14 @@ namespace MonitorApplication.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+        }
+
+        public static DateTime UnixTimeStampToDateTime(long unixTimeStamp)
+        {
+            // Unix timestamp is seconds past epoch
+            DateTime myDate = new DateTime(unixTimeStamp);
+            string test = myDate.ToString("MMMM dd, yyyy");
+            return myDate;
         }
     }
 }
