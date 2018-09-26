@@ -7,3 +7,12 @@ F:\MonitorApplication\MonitorApplicationUtilities\bin\Debug\netstandard2.0\Monit
 F:\MonitorApplication\MonitorApplicationUtilities\obj\Debug\netstandard2.0\MonitorApplication_Utilities.dll
 F:\MonitorApplication\MonitorApplicationUtilities\obj\Debug\netstandard2.0\MonitorApplication_Utilities.pdb
 F:\MonitorApplication\MonitorApplicationUtilities\obj\Debug\netstandard2.0\MonitorApplication_Utilities.csprojAssemblyReference.cache
+D:\MonitorApplication\MonitorApplicationUtilities\bin\Debug\netstandard2.0\MonitorApplication_Utilities.deps.json
+D:\MonitorApplication\MonitorApplicationUtilities\bin\Debug\netstandard2.0\MonitorApplication_Utilities.dll
+D:\MonitorApplication\MonitorApplicationUtilities\bin\Debug\netstandard2.0\MonitorApplication_Utilities.pdb
+D:\MonitorApplication\MonitorApplicationUtilities\obj\Debug\netstandard2.0\MonitorApplication_Utilities.csproj.CoreCompileInputs.cache
+D:\MonitorApplication\MonitorApplicationUtilities\obj\Debug\netstandard2.0\MonitorApplication_Utilities.AssemblyInfoInputs.cache
+D:\MonitorApplication\MonitorApplicationUtilities\obj\Debug\netstandard2.0\MonitorApplication_Utilities.AssemblyInfo.cs
+D:\MonitorApplication\MonitorApplicationUtilities\obj\Debug\netstandard2.0\MonitorApplication_Utilities.dll
+D:\MonitorApplication\MonitorApplicationUtilities\obj\Debug\netstandard2.0\MonitorApplication_Utilities.pdb
+D:\MonitorApplication\MonitorApplicationUtilities\obj\Debug\netstandard2.0\MonitorApplication_Utilities.csprojAssemblyReference.cache

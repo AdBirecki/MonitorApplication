@@ -233,23 +233,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Adam\\.nuget\\packages\\": {},
+    "C:\\Users\\bireckia\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\MonitorApplication\\MonitorApplication_Models\\MonitorApplication_Models.csproj",
+      "projectUniqueName": "D:\\MonitorApplication\\MonitorApplication_Models\\MonitorApplication_Models.csproj",
       "projectName": "MonitorApplication_Models",
-      "projectPath": "F:\\MonitorApplication\\MonitorApplication_Models\\MonitorApplication_Models.csproj",
-      "packagesPath": "C:\\Users\\Adam\\.nuget\\packages\\",
-      "outputPath": "F:\\MonitorApplication\\MonitorApplication_Models\\obj\\",
+      "projectPath": "D:\\MonitorApplication\\MonitorApplication_Models\\MonitorApplication_Models.csproj",
+      "packagesPath": "C:\\Users\\bireckia\\.nuget\\packages\\",
+      "outputPath": "D:\\MonitorApplication\\MonitorApplication_Models\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Adam\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\bireckia\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -262,8 +262,8 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "F:\\MonitorApplication\\MonitorApplicationUtilities\\MonitorApplication_Utilities.csproj": {
-              "projectPath": "F:\\MonitorApplication\\MonitorApplicationUtilities\\MonitorApplication_Utilities.csproj"
+            "D:\\MonitorApplication\\MonitorApplicationUtilities\\MonitorApplication_Utilities.csproj": {
+              "projectPath": "D:\\MonitorApplication\\MonitorApplicationUtilities\\MonitorApplication_Utilities.csproj"
             }
           }
         }

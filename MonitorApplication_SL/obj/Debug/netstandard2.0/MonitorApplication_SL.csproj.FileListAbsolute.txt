@@ -7,3 +7,11 @@ F:\MonitorApplication\MonitorApplication_SL\obj\Debug\netstandard2.0\MonitorAppl
 F:\MonitorApplication\MonitorApplication_SL\obj\Debug\netstandard2.0\MonitorApplication_SL.dll
 F:\MonitorApplication\MonitorApplication_SL\obj\Debug\netstandard2.0\MonitorApplication_SL.pdb
 F:\MonitorApplication\MonitorApplication_SL\obj\Debug\netstandard2.0\MonitorApplication_SL.csprojAssemblyReference.cache
+D:\MonitorApplication\MonitorApplication_SL\bin\Debug\netstandard2.0\MonitorApplication_SL.deps.json
+D:\MonitorApplication\MonitorApplication_SL\bin\Debug\netstandard2.0\MonitorApplication_SL.dll
+D:\MonitorApplication\MonitorApplication_SL\bin\Debug\netstandard2.0\MonitorApplication_SL.pdb
+D:\MonitorApplication\MonitorApplication_SL\obj\Debug\netstandard2.0\MonitorApplication_SL.csproj.CoreCompileInputs.cache
+D:\MonitorApplication\MonitorApplication_SL\obj\Debug\netstandard2.0\MonitorApplication_SL.AssemblyInfoInputs.cache
+D:\MonitorApplication\MonitorApplication_SL\obj\Debug\netstandard2.0\MonitorApplication_SL.AssemblyInfo.cs
+D:\MonitorApplication\MonitorApplication_SL\obj\Debug\netstandard2.0\MonitorApplication_SL.dll
+D:\MonitorApplication\MonitorApplication_SL\obj\Debug\netstandard2.0\MonitorApplication_SL.pdb

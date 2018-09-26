@@ -13,3 +13,11 @@ F:\MonitorApplication\MonitorApplication_DAL\obj\Debug\netstandard2.0\MonitorApp
 F:\MonitorApplication\MonitorApplication_DAL\obj\Debug\netstandard2.0\MonitorApplication_DAL.dll
 F:\MonitorApplication\MonitorApplication_DAL\obj\Debug\netstandard2.0\MonitorApplication_DAL.pdb
 F:\MonitorApplication\MonitorApplication_DAL\obj\Debug\netstandard2.0\MonitorApplication_DAL.csprojAssemblyReference.cache
+D:\MonitorApplication\MonitorApplication_DAL\bin\Debug\netstandard2.0\MonitorApplication_DAL.deps.json
+D:\MonitorApplication\MonitorApplication_DAL\bin\Debug\netstandard2.0\MonitorApplication_DAL.dll
+D:\MonitorApplication\MonitorApplication_DAL\bin\Debug\netstandard2.0\MonitorApplication_DAL.pdb
+D:\MonitorApplication\MonitorApplication_DAL\obj\Debug\netstandard2.0\MonitorApplication_DAL.csproj.CoreCompileInputs.cache
+D:\MonitorApplication\MonitorApplication_DAL\obj\Debug\netstandard2.0\MonitorApplication_DAL.AssemblyInfoInputs.cache
+D:\MonitorApplication\MonitorApplication_DAL\obj\Debug\netstandard2.0\MonitorApplication_DAL.AssemblyInfo.cs
+D:\MonitorApplication\MonitorApplication_DAL\obj\Debug\netstandard2.0\MonitorApplication_DAL.dll
+D:\MonitorApplication\MonitorApplication_DAL\obj\Debug\netstandard2.0\MonitorApplication_DAL.pdb
