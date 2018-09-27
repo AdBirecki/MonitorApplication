@@ -24,3 +24,15 @@ F:\MonitorApplication\MonitorApplication_Models\bin\Debug\netstandard2.0\Monitor
 F:\MonitorApplication\MonitorApplication_Models\bin\Debug\netstandard2.0\MonitorApplication_Utilities.dll
 F:\MonitorApplication\MonitorApplication_Models\bin\Debug\netstandard2.0\MonitorApplication_Utilities.pdb
 F:\MonitorApplication\MonitorApplication_Models\obj\Debug\netstandard2.0\MonitorApplication_Models.csproj.CopyComplete
+D:\MonitorApplication\MonitorApplication_Models\bin\Debug\netstandard2.0\MonitorApplication_Models.deps.json
+D:\MonitorApplication\MonitorApplication_Models\bin\Debug\netstandard2.0\MonitorApplication_Models.dll
+D:\MonitorApplication\MonitorApplication_Models\bin\Debug\netstandard2.0\MonitorApplication_Models.pdb
+D:\MonitorApplication\MonitorApplication_Models\bin\Debug\netstandard2.0\MonitorApplication_Utilities.dll
+D:\MonitorApplication\MonitorApplication_Models\bin\Debug\netstandard2.0\MonitorApplication_Utilities.pdb
+D:\MonitorApplication\MonitorApplication_Models\obj\Debug\netstandard2.0\MonitorApplication_Models.csprojAssemblyReference.cache
+D:\MonitorApplication\MonitorApplication_Models\obj\Debug\netstandard2.0\MonitorApplication_Models.csproj.CoreCompileInputs.cache
+D:\MonitorApplication\MonitorApplication_Models\obj\Debug\netstandard2.0\MonitorApplication_Models.AssemblyInfoInputs.cache
+D:\MonitorApplication\MonitorApplication_Models\obj\Debug\netstandard2.0\MonitorApplication_Models.AssemblyInfo.cs
+D:\MonitorApplication\MonitorApplication_Models\obj\Debug\netstandard2.0\MonitorApplication_Models.csproj.CopyComplete
+D:\MonitorApplication\MonitorApplication_Models\obj\Debug\netstandard2.0\MonitorApplication_Models.dll
+D:\MonitorApplication\MonitorApplication_Models\obj\Debug\netstandard2.0\MonitorApplication_Models.pdb
