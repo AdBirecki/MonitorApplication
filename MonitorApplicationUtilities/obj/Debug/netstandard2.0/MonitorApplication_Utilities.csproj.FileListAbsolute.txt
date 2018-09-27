@@ -7,3 +7,6 @@ F:\MonitorApplication\MonitorApplicationUtilities\bin\Debug\netstandard2.0\Monit
 F:\MonitorApplication\MonitorApplicationUtilities\obj\Debug\netstandard2.0\MonitorApplication_Utilities.dll
 F:\MonitorApplication\MonitorApplicationUtilities\obj\Debug\netstandard2.0\MonitorApplication_Utilities.pdb
 F:\MonitorApplication\MonitorApplicationUtilities\obj\Debug\netstandard2.0\MonitorApplication_Utilities.csprojAssemblyReference.cache
+F:\MonitorApplication\MonitorApplicationUtilities\bin\Debug\netstandard2.0\Microsoft.AspNetCore.Rewrite.dll
+F:\MonitorApplication\MonitorApplicationUtilities\bin\Debug\netstandard2.0\Microsoft.AspNetCore.Rewrite.xml
+F:\MonitorApplication\MonitorApplicationUtilities\obj\Debug\netstandard2.0\MonitorApplication_Utilities.csproj.CopyComplete

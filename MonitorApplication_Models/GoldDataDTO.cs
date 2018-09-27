@@ -13,8 +13,8 @@ namespace MonitorApplication_Models
         public DateTime ts { get; set; }
         [JsonConverter(typeof(TimeStampConverter))]
         public DateTime tsj { get; set; }
-        //[JsonConverter(typeof(DateFormatConverter), "MMM ddd YYYY, hh:mm:ss tt Z")]
-        public string date { get; set; }
+        [JsonConverter(typeof(DateFormatConverter<string>))]
+        public DateTime date { get; set; }
         public IEnumerable<ChangeDTO> items { get; set; }
     }
 }

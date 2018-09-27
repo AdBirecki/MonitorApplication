@@ -9,7 +9,12 @@ namespace MonitorApplication_Utilities
     public class TimeStampConverter : JsonConverter
     {
         public TimeStampConverter() {
+        }
 
+        public TimeStampConverter(params string[] parameters) {
+            foreach (string parameter in parameters) {
+                System.Console.WriteLine(parameter);
+            }
         }
 
         public override bool CanConvert(Type objectType)
