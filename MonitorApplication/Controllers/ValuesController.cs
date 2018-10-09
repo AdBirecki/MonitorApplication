@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using MonitorApplication.Controllers.BaseControllers;
 using MonitorApplication_Models;
 using Newtonsoft.Json;
@@ -14,18 +16,29 @@ namespace MonitorApplication.Controllers
     [ApiController]
     public class ValuesController : ApiBaseController
     {
+        private readonly string address; 
+        public ValuesController(IConfiguration configuration) {
+            address = configuration.GetSection("DataUri").Value;
+
+        }
+
         // GET api/values
         [HttpGet]
         public IActionResult Get()
         {
+           
             IRestClient client = new RestClient("https://data-asg.goldprice.org/");
             IRestRequest request = new RestRequest("dbXRates/{currency}", Method.GET);
             request.AddUrlSegment("currency", "USD");
 
-            IRestResponse<GoldDataDTO> response = client.Execute<GoldDataDTO>(request);
-            
+            //HttpClient httpClient = new HttpClient();
+
+            //HttpResponseMessage response = await client.GetAsync("http://www.contoso.com/");
+
+            IRestResponse<GoldDataDTO> response = client.Execute<GoldDataDTO>(request);           
             GoldDataDTO goldData = JsonConvert.DeserializeObject<GoldDataDTO>(response.Content);
            //  DateTime dt = UnixTimeStampToDateTime(goldData.ts);
+
             return Ok(response.Data);
         }
 

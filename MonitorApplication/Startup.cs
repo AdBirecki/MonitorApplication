@@ -31,6 +31,7 @@ namespace MonitorApplication
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             services
+                .AddSingleton(Configuration)
                 .AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 

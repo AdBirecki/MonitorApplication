@@ -22,6 +22,10 @@ namespace MonitorApplication
             WebHost
                 .CreateDefaultBuilder(args)
                 .ConfigureServices(services => services.AddAutofac())
+                .ConfigureAppConfiguration((hostingContext, config) => {
+                    config.SetBasePath(Directory.GetCurrentDirectory());
+                    config.AddJsonFile("appsettings.json", false, true);
+                })
                 .UseStartup<Startup>();
     }
 }
