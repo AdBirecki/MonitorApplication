@@ -5,7 +5,6 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using MonitorApplicationUtilities;
 using MonitorApplication_Utilities;
-using Microsoft.AspNetCore.Mvc;
 
 namespace MonitorApplication_Models
 {

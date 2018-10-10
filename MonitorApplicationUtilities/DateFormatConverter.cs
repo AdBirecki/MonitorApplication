@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
@@ -19,7 +20,7 @@ namespace MonitorApplication_Utilities
 
         public override DateTime ReadJson(JsonReader reader, Type objectType, DateTime existingValue, bool hasExistingValue, JsonSerializer serializer)
         {
-            DateTime dateTime = ParseDateString(reader.Value.ToString());
+            DateTime dateTime = ParseDateString(reader.Value.ToString()).ToLocalTime();
             return dateTime;
         }
 
@@ -34,8 +35,10 @@ namespace MonitorApplication_Utilities
             int monthNumber = getMonth(splitStrings[0]);
             int dayNumber = getDay(splitStrings[1]);
             int yearNumber = getYear(splitStrings[2]);
-
-            return new DateTime();
+            DateTime time = getShortDate(splitStrings[3], splitStrings[4]);
+            DateTime resultCentralTime = new DateTime(yearNumber, monthNumber, dayNumber, time.Hour, time.Minute, time.Second, DateTimeKind.Unspecified);
+            DateTime resultUTCTime = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(resultCentralTime, "Central Standard Time", "UTC").ToLocalTime();
+            return resultUTCTime;
         }
 
         private int getMonth(string shortName) {
@@ -45,12 +48,23 @@ namespace MonitorApplication_Utilities
             }
 
 
-            int monthNumber = Array.FindIndex(ShortMonths, item => item.Equals(shortName));
+            int monthNumber = Array.FindIndex(ShortMonths, item => item.Equals(shortName)) + 1;
             return monthNumber;
         }
 
+        private DateTime getShortDate(string time, string tt)
+        {
+            string hourFormat12 = "hh:mm:ss tt";
+            string fullFormat = string.Format("{0} {1}", time, tt);
+
+            DateTime.TryParseExact(fullFormat, hourFormat12, 
+                CultureInfo.InvariantCulture,DateTimeStyles.None,
+                out DateTime shortTime);
+            return shortTime;
+        }
+
         private int getYear(string year) {
-            int.TryParse(year, out int yearInt);
+            int.TryParse(year.Replace(",",""), out int yearInt);
             return yearInt;
         }
 
