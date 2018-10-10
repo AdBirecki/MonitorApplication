@@ -24,7 +24,8 @@ namespace MonitorApplication_Models
         [JsonConverter(typeof(DateFormatConverter<string>))]
         public DateTime date { get; set; }
 
-        public IEnumerable<ChangeDto> items { get; set; }
+        [JsonProperty("items")]
+        public IEnumerable<ChangeDto> children { get; set; }
 
         private const string TimeStampName = "ts";
         private const string TimeStampJName = "tsj";
