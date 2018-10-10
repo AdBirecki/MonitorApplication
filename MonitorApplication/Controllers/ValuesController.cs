@@ -17,30 +17,20 @@ namespace MonitorApplication.Controllers
     [ApiController]
     public class ValuesController : ApiBaseController
     {
-        private readonly string address;
         private readonly GoldClient _goldClient;
-        public ValuesController(IConfiguration configuration, GoldClient goldClient)
+        public ValuesController(
+            IConfiguration configuration, 
+            GoldClient goldClient)
         {
             _goldClient = goldClient;
-
         }
 
         // GET api/values
         [HttpGet]
         public async Task<IActionResult>  Get()
         {
-           
-            IRestClient client = new RestClient("https://data-asg.goldprice.org/");
-            IRestRequest request = new RestRequest("dbXRates/{currency}", Method.GET);
-            request.AddUrlSegment("currency", "USD");
-
-            string data = await _goldClient.GetGoldValues();
-            GoldDataDTO goldData2 = JsonConvert.DeserializeObject<GoldDataDTO>(data);
-            IRestResponse<GoldDataDTO> response = client.Execute<GoldDataDTO>(request);           
-            GoldDataDTO goldData = JsonConvert.DeserializeObject<GoldDataDTO>(response.Content);
-           //  DateTime dt = UnixTimeStampToDateTime(goldData.ts);
-
-            return Ok(response.Data);
+            GoldDataDTO goldData3 = await _goldClient.GetGoldValues<GoldDataDTO>();
+            return Ok(goldData3);
         }
 
         // GET api/values/5

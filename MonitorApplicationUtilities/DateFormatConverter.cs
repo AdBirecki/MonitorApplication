@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using Microsoft.AspNetCore.Rewrite.Internal;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 
-namespace MonitorApplicationUtilities
+namespace MonitorApplication_Utilities
 {
     public class DateFormatConverter<T> : JsonConverter<DateTime>
     {
@@ -23,7 +20,7 @@ namespace MonitorApplicationUtilities
         public override DateTime ReadJson(JsonReader reader, Type objectType, DateTime existingValue, bool hasExistingValue, JsonSerializer serializer)
         {
             DateTime dateTime = ParseDateString(reader.Value.ToString());
-            throw new NotImplementedException();
+            return dateTime;
         }
 
         public override void WriteJson(JsonWriter writer, DateTime value, JsonSerializer serializer)
@@ -32,11 +29,11 @@ namespace MonitorApplicationUtilities
         }
         private DateTime ParseDateString(string dateString)
         {
-            string[] SplitStrings = dateString.Split(new char[] { space });
+            string[] splitStrings = dateString.Split(new char[] { space });
         
-            int monthNumber = getMonth(SplitStrings[0]);
-            int dayNumber = getDay(SplitStrings[1]);
-            int yearNumber = getYear(SplitStrings[2]);
+            int monthNumber = getMonth(splitStrings[0]);
+            int dayNumber = getDay(splitStrings[1]);
+            int yearNumber = getYear(splitStrings[2]);
 
             return new DateTime();
         }

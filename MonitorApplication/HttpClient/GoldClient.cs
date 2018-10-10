@@ -25,22 +25,20 @@ namespace MonitorApplication.HttpClient
             _logger = _loggerFactory.CreateLogger<GoldClient>();
         }
 
-        public async Task<string> GetGoldValues()
+        public async Task<T> GetGoldValues<T>()
         {
             try
             {
-
                 string action = string.Format(_actionCurrency, _usdCurrency);
                 HttpResponseMessage response = await _client.GetAsync(action);
-                return await response.Content.ReadAsAsync<string>();
+                T result = await response.Content.ReadAsAsync<T>();
+                return result;
             }
             catch (HttpRequestException ex)
             {
-                _logger.LogError($"An error occured connecting to values API {ex}");
-                return string.Empty;
+                _logger.LogError($"An error occured connecting to gold API {ex}");
+                return default(T);
             }
         }
-
-
     }
 }

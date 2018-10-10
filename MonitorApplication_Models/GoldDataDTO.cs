@@ -7,7 +7,7 @@ using MonitorApplication_Utilities;
 
 namespace MonitorApplication_Models
 {
-    public class GoldDataDTO
+    public class GoldDataDto
     {
         [JsonConverter(typeof(TimeStampConverter))]
         public DateTime ts { get; set; }

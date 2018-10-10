@@ -13,7 +13,7 @@ namespace MonitorApplication_Utilities
 
         public TimeStampConverter(params string[] parameters) {
             foreach (string parameter in parameters) {
-                System.Console.WriteLine(parameter);
+                Console.WriteLine(parameter);
             }
         }
 
@@ -39,7 +39,7 @@ namespace MonitorApplication_Utilities
             JsonSerializer serializer)
         {
             DateTime dateTime = (DateTime)value;
-            long tics = dateTime.Ticks * ticsDenomintor;
+            long tics = dateTime.Ticks * TicsDenomintor;
             JToken t = JToken.FromObject(tics);
             t.WriteTo(writer);
         }
@@ -67,11 +67,11 @@ namespace MonitorApplication_Utilities
         protected static DateTime UnixTimeStampToDateTime(long unixTimeStamp)
         {
             DateTime myDate = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc)
-                .AddSeconds(unixTimeStamp / ticsDenomintor);
+                .AddSeconds(unixTimeStamp / TicsDenomintor);
             DateTime localDate = myDate
                 .ToLocalTime();
             return localDate;
         }
-        private const int ticsDenomintor = 1000;
+        private const int TicsDenomintor = 1000;
     }
 }
