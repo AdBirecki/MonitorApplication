@@ -1,10 +1,11 @@
 ﻿using System.Runtime.Serialization;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 namespace MonitorApplication_Models
 {
     public class ChangeDto
     {
-        [DataMember(Name = "curr")]
+        [JsonProperty("curr")]
         public string Currency { get; set; }
 
         [JsonProperty("xauPrice")]
@@ -19,7 +20,7 @@ namespace MonitorApplication_Models
         [JsonProperty("chgXag")]
         public double ChgXag { get; set; }
 
-        [DataMember(Name = "pcXau")]
+        [JsonProperty("pcXau")]
         public double PcXau { get; set; }
 
         [JsonProperty("pcXag")]

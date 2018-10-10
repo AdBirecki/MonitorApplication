@@ -5,17 +5,20 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using MonitorApplicationUtilities;
 using MonitorApplication_Utilities;
+using Microsoft.AspNetCore.Mvc;
 
 namespace MonitorApplication_Models
 {
     public class GoldDataDto
     {
-        [JsonProperty(TimeStampName)]
+
         [JsonConverter(typeof(TimeStampConverter))]
+        [JsonProperty(TimeStampName)]
         public DateTime TimeStamp { get; set; }
 
-        [JsonProperty(TimeStampJName)]
+
         [JsonConverter(typeof(TimeStampConverter))]
+        [JsonProperty(TimeStampJName)]
         public DateTime TimeStampJ { get; set; }
 
         [JsonConverter(typeof(DateFormatConverter<string>))]

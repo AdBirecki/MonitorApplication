@@ -1,13 +1,14 @@
-﻿using System;
+﻿using Microsoft.Extensions.Hosting;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Hosting;
+
 
 namespace MonitorApplication_Scheduler
 {
-    public abstract class HostedService : IHostedService
+    public abstract class HostedService :IHostedService
     {
         private Task _executingTask;
         private CancellationTokenSource _cts;
