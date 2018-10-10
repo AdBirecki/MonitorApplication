@@ -13,6 +13,7 @@ using Microsoft.Extensions.Options;
 using Autofac.Extensions.DependencyInjection;
 using System.ComponentModel;
 using Autofac;
+using MonitorApplication.HttpClient;
 using IContainer = Autofac.IContainer;
 
 namespace MonitorApplication
@@ -35,6 +36,9 @@ namespace MonitorApplication
                 .AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
+            var data = Configuration["GoldDataUri"];
+            services.AddHttpClient<GoldClient>(client => client.BaseAddress = new Uri(Configuration["GoldDataUri"]));
+
             ContainerBuilder container = new ContainerBuilder();
             container.Populate(services);
 
@@ -44,8 +48,14 @@ namespace MonitorApplication
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+            if (loggerFactory != null)
+            {
+                loggerFactory.AddConsole(Configuration.GetSection("Logging"));
+                loggerFactory.AddDebug();
+            }
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

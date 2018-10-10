@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using MonitorApplication.Controllers.BaseControllers;
+using MonitorApplication.HttpClient;
 using MonitorApplication_Models;
 using Newtonsoft.Json;
 using RestSharp;
@@ -16,25 +17,25 @@ namespace MonitorApplication.Controllers
     [ApiController]
     public class ValuesController : ApiBaseController
     {
-        private readonly string address; 
-        public ValuesController(IConfiguration configuration) {
-            address = configuration.GetSection("DataUri").Value;
+        private readonly string address;
+        private readonly GoldClient _goldClient;
+        public ValuesController(IConfiguration configuration, GoldClient goldClient)
+        {
+            _goldClient = goldClient;
 
         }
 
         // GET api/values
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IActionResult>  Get()
         {
            
             IRestClient client = new RestClient("https://data-asg.goldprice.org/");
             IRestRequest request = new RestRequest("dbXRates/{currency}", Method.GET);
             request.AddUrlSegment("currency", "USD");
 
-            //HttpClient httpClient = new HttpClient();
-
-            //HttpResponseMessage response = await client.GetAsync("http://www.contoso.com/");
-
+            string data = await _goldClient.GetGoldValues();
+            GoldDataDTO goldData2 = JsonConvert.DeserializeObject<GoldDataDTO>(data);
             IRestResponse<GoldDataDTO> response = client.Execute<GoldDataDTO>(request);           
             GoldDataDTO goldData = JsonConvert.DeserializeObject<GoldDataDTO>(response.Content);
            //  DateTime dt = UnixTimeStampToDateTime(goldData.ts);
