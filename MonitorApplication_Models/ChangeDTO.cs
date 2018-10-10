@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 namespace MonitorApplication_Models
 {
-    public class ChangeDTO
+    public class ChangeDto
     {
         [DataMember(Name = "curr")]
         public string Currency { get; set; }

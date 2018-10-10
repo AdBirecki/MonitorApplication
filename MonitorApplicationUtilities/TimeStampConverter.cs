@@ -2,20 +2,16 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
+using Newtonsoft.Json.Converters;
 
 namespace MonitorApplication_Utilities
 {
-    public class TimeStampConverter : JsonConverter
+    public class TimeStampConverter : DateTimeConverterBase
     {
-        public TimeStampConverter() {
-        }
+        private static readonly DateTime _epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 
-        public TimeStampConverter(params string[] parameters) {
-            foreach (string parameter in parameters) {
-                Console.WriteLine(parameter);
-            }
-        }
 
         public override bool CanConvert(Type objectType)
         {
@@ -28,20 +24,24 @@ namespace MonitorApplication_Utilities
             object existingValue, 
             JsonSerializer serializer)
         {
+            if (reader.Value == null)
+            {
+                return null;
+            }
 
-            long tiemstampValue = (long)reader.Value;
-            DateTime dateTime = UnixTimeStampToDateTime(tiemstampValue);
+            DateTime dateTime = _epoch.AddMilliseconds((long) reader.Value).ToLocalTime();
             return dateTime;
         }
 
-        public override void WriteJson(JsonWriter writer, 
+        public override void WriteJson(
+            JsonWriter writer, 
             object value, 
             JsonSerializer serializer)
         {
             DateTime dateTime = (DateTime)value;
-            long tics = dateTime.Ticks * TicsDenomintor;
-            JToken t = JToken.FromObject(tics);
-            t.WriteTo(writer);
+            string valueToWrite = (dateTime - _epoch).TotalMilliseconds.ToString(CultureInfo.InvariantCulture);
+
+            writer.WriteRawValue(valueToWrite);
         }
 
         private bool IsNumericType(Type type) {

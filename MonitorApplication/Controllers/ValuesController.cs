@@ -29,7 +29,7 @@ namespace MonitorApplication.Controllers
         [HttpGet]
         public async Task<IActionResult>  Get()
         {
-            GoldDataDTO goldData3 = await _goldClient.GetGoldValues<GoldDataDTO>();
+            GoldDataDto goldData3 = await _goldClient.GetGoldValues<GoldDataDto>();
             return Ok(goldData3);
         }
 
