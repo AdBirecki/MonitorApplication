@@ -36,7 +36,6 @@ namespace MonitorApplication
                 .AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            var data = Configuration["GoldDataUri"];
             services.AddHttpClient<GoldClient>(client => client.BaseAddress = new Uri(Configuration["GoldDataUri"]));
 
             ContainerBuilder container = new ContainerBuilder();

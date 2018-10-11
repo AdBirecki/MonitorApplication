@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MonitorApplication_Scheduler
 {
-    public abstract class HostedService :IHostedService
+    public abstract class HostedService : IHostedService
     {
         private Task _executingTask;
         private CancellationTokenSource _cts;

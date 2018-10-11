@@ -37,8 +37,8 @@ namespace MonitorApplication_Utilities
             int yearNumber = getYear(splitStrings[2]);
             DateTime time = getShortDate(splitStrings[3], splitStrings[4]);
             DateTime resultCentralTime = new DateTime(yearNumber, monthNumber, dayNumber, time.Hour, time.Minute, time.Second, DateTimeKind.Unspecified);
-            DateTime resultUTCTime = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(resultCentralTime, "Central Standard Time", "UTC").ToLocalTime();
-            return resultUTCTime;
+            DateTime resultUtcTime = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(resultCentralTime, "Central Standard Time", "UTC");
+            return resultUtcTime;
         }
 
         private int getMonth(string shortName) {
