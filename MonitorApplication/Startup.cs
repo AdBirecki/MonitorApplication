@@ -14,6 +14,8 @@ using Autofac.Extensions.DependencyInjection;
 using System.ComponentModel;
 using Autofac;
 using MonitorApplication.HttpClient;
+using MonitorApplication_Models.Scheduling;
+using MonitorApplication_Models.Scheduling.Models;
 using IContainer = Autofac.IContainer;
 
 namespace MonitorApplication
@@ -37,6 +39,9 @@ namespace MonitorApplication
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddHttpClient<GoldClient>(client => client.BaseAddress = new Uri(Configuration["GoldDataUri"]));
+            services.AddSingleton<IScheduledTask, QuoteOfTheDayTask>();
+            services.AddSingleton<IScheduledTask, SomeOtherTask>();
+            // services.AddScheduler()
 
             ContainerBuilder container = new ContainerBuilder();
             container.Populate(services);

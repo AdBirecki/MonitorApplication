@@ -10,7 +10,7 @@ namespace MonitorApplication_Scheduler
 {
     public class SchedulerHostedService : HostedService
     {
-        public event EventHandler<UnobservedTaskExceptionEventArgs> UnobserverTaskException;
+        public event EventHandler<UnobservedTaskExceptionEventArgs> UnobservedTaskException;
         private readonly  List<SchedulerTaskWrapper> _scheduledTasks = new List<SchedulerTaskWrapper>();
 
         public SchedulerHostedService(IEnumerable<IScheduledTask> scheduledTasks)
