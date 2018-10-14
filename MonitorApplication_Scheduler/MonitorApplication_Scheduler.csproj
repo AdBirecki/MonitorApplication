@@ -5,11 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MonitorApplication_Models\MonitorApplication_Models.csproj" />
+    <Compile Remove="SchedulingExtensions\**" />
+    <EmbeddedResource Remove="SchedulingExtensions\**" />
+    <None Remove="SchedulingExtensions\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="SchedulingExtensions\" />
+    <ProjectReference Include="..\MonitorApplication_Models\MonitorApplication_Models.csproj" />
   </ItemGroup>
 
   <ItemGroup>
