@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using MonitorApplication_Models.Scheduling;
 using MonitorApplication_Models.Scheduling.Crontab;
 using MonitorApplication_Models.Scheduling.Models;
+using MonitorApplication_Scheduler.SchedulingModels.Interfaces;
 
 namespace MonitorApplication_Scheduler
 {

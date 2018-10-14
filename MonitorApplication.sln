@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonitorApplication_Models",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonitorApplication_Utilities", "MonitorApplicationUtilities\MonitorApplication_Utilities.csproj", "{2FD7DFF6-347B-49C7-8518-D87DA461D846}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonitorApplication_Scheduler", "MonitorApplication_Scheduler\MonitorApplication_Scheduler.csproj", "{70E85DEB-68C7-49B4-B2D8-51D21C1DA68A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonitorApplication_Scheduler", "MonitorApplication_Scheduler\MonitorApplication_Scheduler.csproj", "{70E85DEB-68C7-49B4-B2D8-51D21C1DA68A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonitorApplication_HttpClient", "MonitorApplication_HttpClient\MonitorApplication_HttpClient.csproj", "{6E85107C-64FE-4D9F-A5B3-6A18960F23BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{70E85DEB-68C7-49B4-B2D8-51D21C1DA68A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70E85DEB-68C7-49B4-B2D8-51D21C1DA68A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70E85DEB-68C7-49B4-B2D8-51D21C1DA68A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E85107C-64FE-4D9F-A5B3-6A18960F23BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E85107C-64FE-4D9F-A5B3-6A18960F23BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E85107C-64FE-4D9F-A5B3-6A18960F23BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E85107C-64FE-4D9F-A5B3-6A18960F23BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

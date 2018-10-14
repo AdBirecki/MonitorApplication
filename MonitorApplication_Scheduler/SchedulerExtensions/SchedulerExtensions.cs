@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MonitorApplication_Models.Scheduling;
+using MonitorApplication_Scheduler.SchedulingModels.Interfaces;
 
 namespace MonitorApplication_Scheduler.SchedulerExtensions
 {

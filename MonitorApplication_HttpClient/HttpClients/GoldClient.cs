@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Net.Http;
+using Newtonsoft.Json;
 using Microsoft.Extensions.Logging;
 
-namespace MonitorApplication.HttpClient
+namespace MonitorApplicationHttpClient
 {
-    using HttpClient = System.Net.Http.HttpClient;
-
     public class GoldClient
     {
         private readonly HttpClient _client;

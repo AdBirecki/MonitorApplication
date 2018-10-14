@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MonitorApplication_HttpClient\MonitorApplication_HttpClient.csproj" />
     <ProjectReference Include="..\MonitorApplication_Models\MonitorApplication_Models.csproj" />
   </ItemGroup>
 

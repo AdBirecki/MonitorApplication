@@ -15,7 +15,7 @@ namespace MonitorApplication_Models.Scheduling.Crontab
 
         private CrontabField(CrontabFieldImpl impl, string expression)
         {
-            _impl = _impl ?? throw new ArgumentNullException();
+            _impl = impl ?? throw new ArgumentNullException();
             _bits = new BitArray(impl.ValueCount);
 
             _bits.SetAll(false);

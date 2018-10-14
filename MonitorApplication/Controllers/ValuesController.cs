@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using MonitorApplication.Controllers.BaseControllers;
-using MonitorApplication.HttpClient;
 using MonitorApplication_Models;
+using MonitorApplicationHttpClient;
 using Newtonsoft.Json;
-using RestSharp;
+
 
 namespace MonitorApplication.Controllers
 {

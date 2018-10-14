@@ -13,11 +13,11 @@ using Microsoft.Extensions.Options;
 using Autofac.Extensions.DependencyInjection;
 using System.ComponentModel;
 using Autofac;
-using MonitorApplication.HttpClient;
-using MonitorApplication_Models.Scheduling;
 using MonitorApplication_Models.Scheduling.Models;
 using IContainer = Autofac.IContainer;
 using MonitorApplication_Scheduler.SchedulerExtensions;
+using MonitorApplication_Scheduler.SchedulingModels.Interfaces;
+using MonitorApplicationHttpClient;
 
 namespace MonitorApplication
 {

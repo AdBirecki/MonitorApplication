@@ -4,7 +4,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace MonitorApplication_Models.Scheduling
+namespace MonitorApplication_Scheduler.SchedulingModels.Interfaces
 {
     public interface IScheduledTask
     {

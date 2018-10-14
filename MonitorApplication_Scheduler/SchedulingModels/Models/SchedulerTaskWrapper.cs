@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using MonitorApplication_Models.Scheduling.Crontab;
+using MonitorApplication_Scheduler.SchedulingModels.Interfaces;
 
 namespace MonitorApplication_Models.Scheduling.Models
 {

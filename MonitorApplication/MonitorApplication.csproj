@@ -11,11 +11,11 @@
   <ItemGroup>
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.3.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="RestSharp" Version="106.4.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\MonitorApplicationUtilities\MonitorApplication_Utilities.csproj" />
+    <ProjectReference Include="..\MonitorApplication_HttpClient\MonitorApplication_HttpClient.csproj" />
     <ProjectReference Include="..\MonitorApplication_Models\MonitorApplication_Models.csproj" />
     <ProjectReference Include="..\MonitorApplication_Scheduler\MonitorApplication_Scheduler.csproj" />
   </ItemGroup>

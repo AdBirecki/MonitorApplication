@@ -26,7 +26,7 @@ namespace MonitorApplication_Utilities
 
         public override void WriteJson(JsonWriter writer, DateTime value, JsonSerializer serializer)
         {
-            throw new NotImplementedException();
+            writer.WriteValue(value);
         }
         private DateTime ParseDateString(string dateString)
         {
