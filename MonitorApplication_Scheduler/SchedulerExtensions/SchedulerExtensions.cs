@@ -4,7 +4,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using MonitorApplication_Models.Scheduling;
 using MonitorApplication_Scheduler.SchedulingModels.Interfaces;
 
 namespace MonitorApplication_Scheduler.SchedulerExtensions
@@ -20,7 +19,8 @@ namespace MonitorApplication_Scheduler.SchedulerExtensions
             this IServiceCollection services,
             EventHandler<UnobservedTaskExceptionEventArgs> unobservedTaskExceptionHandler)
         {
-            return services.AddSingleton<IHostedService, SchedulerHostedService>(serviceProvider =>
+            return services.AddSingleton<IHostedService, SchedulerHostedService>(
+                serviceProvider =>
             {
                 var instance = new SchedulerHostedService(serviceProvider.GetServices<IScheduledTask>());
                 instance.UnobservedTaskException += unobservedTaskExceptionHandler;

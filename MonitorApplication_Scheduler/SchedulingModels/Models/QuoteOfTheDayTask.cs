@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Text;
+﻿using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using MonitorApplication_Scheduler.SchedulingModels.Interfaces;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace MonitorApplication_Models.Scheduling.Models
+namespace MonitorApplication_Scheduler.SchedulingModels.Models
 {
     public class QuoteOfTheDayTask : IScheduledTask
     {

@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using MonitorApplication_Models.Scheduling;
-using MonitorApplication_Models.Scheduling.Crontab;
-using MonitorApplication_Models.Scheduling.Models;
+using MonitorApplication_Scheduler.SchedulingModels.Crontab;
 using MonitorApplication_Scheduler.SchedulingModels.Interfaces;
+using MonitorApplication_Scheduler.SchedulingModels.Models;
 
 namespace MonitorApplication_Scheduler
 {
@@ -35,16 +34,18 @@ namespace MonitorApplication_Scheduler
             {
                 await ExecuteOnceAsync(cancellationToken);
 
-                await Task.Delay(TimeSpan.FromMinutes(1), cancellationToken);
+                await Task.Delay(TimeSpan.FromSeconds(15), cancellationToken);
             }
         }
 
         private async Task ExecuteOnceAsync(CancellationToken cancellationToken)
         {
             var taskFactory = new TaskFactory(TaskScheduler.Current);
-            var referenceTime = DateTime.UtcNow;
+            var referenceTime = DateTime.Now;
 
-            var tasksThatShouldRun = _scheduledTasks.Where(t => t.ShouldRun(referenceTime)).ToList();
+            var tasksThatShouldRun = _scheduledTasks
+                .Where(t => t.ShouldRun(referenceTime))
+                .ToList();
 
             foreach (var taskThatShouldRun in tasksThatShouldRun)
             {
@@ -71,26 +72,6 @@ namespace MonitorApplication_Scheduler
                         }
                     },
                     cancellationToken);
-            }
-        }
-
-        private class SchedulerTaskWrapper
-        {
-            public CrontabSchedule Schedule { get; set; }
-            public IScheduledTask Task { get; set; }
-
-            public DateTime LastRunTime { get; set; }
-            public DateTime NextRunTime { get; set; }
-
-            public void Increment()
-            {
-                LastRunTime = NextRunTime;
-                NextRunTime = Schedule.GetNextOccurance(NextRunTime);
-            }
-
-            public bool ShouldRun(DateTime currentTime)
-            {
-                return NextRunTime < currentTime && LastRunTime != NextRunTime;
             }
         }
     }

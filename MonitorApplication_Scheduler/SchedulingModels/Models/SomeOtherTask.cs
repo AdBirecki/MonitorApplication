@@ -1,11 +1,8 @@
-﻿using MonitorApplication_Scheduler.SchedulingModels.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
+using MonitorApplication_Scheduler.SchedulingModels.Interfaces;
 
-namespace MonitorApplication_Models.Scheduling.Models
+namespace MonitorApplication_Scheduler.SchedulingModels.Models
 {
     public class SomeOtherTask : IScheduledTask
     {

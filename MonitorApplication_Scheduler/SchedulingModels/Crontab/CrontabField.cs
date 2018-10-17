@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Text;
+using System.IO;
 
-namespace MonitorApplication_Models.Scheduling.Crontab
+namespace MonitorApplication_Scheduler.SchedulingModels.Crontab
 {
     [Serializable]
     public sealed class CrontabField
@@ -81,6 +80,7 @@ namespace MonitorApplication_Models.Scheduling.Crontab
         {
             return value - _impl.MinValue;
         }
+
         private void Accumulate(int start, int end, int interval)
         {
             var minValue = _impl.MinValue;
@@ -189,6 +189,21 @@ namespace MonitorApplication_Models.Scheduling.Crontab
 
             if (_maxValueSet < i)
                 _maxValueSet = i;
+        }
+
+        public bool Contains(int value)
+        {
+            return _bits[ValueToIndex(value)];
+        }
+
+        public void Format(TextWriter writer)
+        {
+            Format(writer, false);
+        }
+
+        public void Format(TextWriter writer, bool noNames)
+        {
+            _impl.Format(this, writer, noNames);
         }
     }
 }
