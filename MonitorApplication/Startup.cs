@@ -41,8 +41,8 @@ namespace MonitorApplication
 
             services.AddHttpClient<GoldClient>(client => client.BaseAddress = new Uri(Configuration["GoldDataUri"]));
             services.AddSingleton<IScheduledTask, GoldPriceDataRecoveryTask>();
-            services.AddSingleton<IScheduledTask, QuoteOfTheDayTask>();
-            services.AddSingleton<IScheduledTask, SomeOtherTask>();
+            // services.AddSingleton<IScheduledTask, QuoteOfTheDayTask>();
+            // services.AddSingleton<IScheduledTask, SomeOtherTask>();
             services.AddScheduler((sender, args) => { args.SetObserved(); });
 
             ContainerBuilder container = new ContainerBuilder();
