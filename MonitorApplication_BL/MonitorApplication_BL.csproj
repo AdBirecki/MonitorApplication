@@ -9,7 +9,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Queries\RetriveUserQueries\" />
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions">
+      <HintPath>C:\Users\bireckia\.nuget\packages\microsoft.extensions.logging.abstractions\2.1.1\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

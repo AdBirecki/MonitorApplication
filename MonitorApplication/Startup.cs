@@ -48,6 +48,7 @@ namespace MonitorApplication
 
             ContainerBuilder container = new ContainerBuilder();
             container.Populate(services);
+            container.RegisterModule<DispatcherModule>();
             container.RegisterModule<HandlerModule>();
 
             AppContainer = container.Build();
