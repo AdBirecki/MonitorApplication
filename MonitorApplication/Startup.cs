@@ -18,6 +18,7 @@ using MonitorApplication_Scheduler.SchedulerExtensions;
 using MonitorApplication_Scheduler.SchedulingModels.Interfaces;
 using MonitorApplicationHttpClient;
 using MonitorApplication_Scheduler.SchedulingModels.Models;
+using MonitorApplication_BL.Module;
 
 namespace MonitorApplication
 {
@@ -47,6 +48,7 @@ namespace MonitorApplication
 
             ContainerBuilder container = new ContainerBuilder();
             container.Populate(services);
+            container.RegisterModule<HandlerModule>();
 
             AppContainer = container.Build();
 
