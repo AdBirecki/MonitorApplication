@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MonitorApplication.Controllers.BaseControllers;
+using MonitorApplication.Filters;
 using MonitorApplication_BL.Commands.Interfaces;
 using MonitorApplication_BL.Commands.RegisterCommand;
 using MonitorApplication_BL.Queries.Interfaces;
@@ -12,7 +13,7 @@ using MonitorApplication_BL.Queries.Interfaces;
 namespace MonitorApplication.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]
+   
     public class UsersController : ApiBaseController
     {
         private readonly ICommandDispatcher _commandDispatcher;
@@ -24,6 +25,7 @@ namespace MonitorApplication.Controllers
         }
 
         [HttpPost]
+        [ServiceFilter(typeof(FilterWithDI))]
         public IActionResult Post([FromBody] RegisterUserCommand command)
         {
             _commandDispatcher.Execute(command);

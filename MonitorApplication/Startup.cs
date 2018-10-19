@@ -19,6 +19,7 @@ using MonitorApplication_Scheduler.SchedulingModels.Interfaces;
 using MonitorApplicationHttpClient;
 using MonitorApplication_Scheduler.SchedulingModels.Models;
 using MonitorApplication_BL.Module;
+using MonitorApplication.Filters;
 
 namespace MonitorApplication
 {
@@ -45,6 +46,9 @@ namespace MonitorApplication
             // services.AddSingleton<IScheduledTask, QuoteOfTheDayTask>();
             // services.AddSingleton<IScheduledTask, SomeOtherTask>();
             services.AddScheduler((sender, args) => { args.SetObserved(); });
+            
+            // filters
+            services.AddScoped<FilterWithDI>();
 
             ContainerBuilder container = new ContainerBuilder();
             container.Populate(services);
