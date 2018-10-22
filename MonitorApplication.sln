@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28010.2016
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonitorApplication", "MonitorApplication\MonitorApplication.csproj", "{2466F573-F54E-4DBF-B016-CED15D0EA1E9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonitorApplication_DAL", "MonitorApplication_DAL\MonitorApplication_DAL.csproj", "{162282D9-5873-4263-9D40-9BB1B34B4449}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonitorApplication_USERS_DAL", "MonitorApplication_DAL\MonitorApplication_USERS_DAL.csproj", "{162282D9-5873-4263-9D40-9BB1B34B4449}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonitorApplication_SL", "MonitorApplication_SL\MonitorApplication_SL.csproj", "{AD9F1DE7-DB76-4F24-854E-3818DBFE5F73}"
 EndProject
@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonitorApplication_Schedule
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonitorApplication_HttpClient", "MonitorApplication_HttpClient\MonitorApplication_HttpClient.csproj", "{6E85107C-64FE-4D9F-A5B3-6A18960F23BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonitorApplication_BL", "MonitorApplication_BL\MonitorApplication_BL.csproj", "{417C1769-3FAD-459F-9230-712A93704C56}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonitorApplication_BL", "MonitorApplication_BL\MonitorApplication_BL.csproj", "{417C1769-3FAD-459F-9230-712A93704C56}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

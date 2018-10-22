@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace MonitorApplication_DAL
+﻿namespace MonitorApplication_USERS_DAL
 {
     public class Class1
     {

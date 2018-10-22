@@ -13,6 +13,7 @@ using Microsoft.Extensions.Options;
 using Autofac.Extensions.DependencyInjection;
 using System.ComponentModel;
 using Autofac;
+using Microsoft.EntityFrameworkCore;
 using IContainer = Autofac.IContainer;
 using MonitorApplication_Scheduler.SchedulerExtensions;
 using MonitorApplication_Scheduler.SchedulingModels.Interfaces;
@@ -20,6 +21,7 @@ using MonitorApplicationHttpClient;
 using MonitorApplication_Scheduler.SchedulingModels.Models;
 using MonitorApplication_BL.Module;
 using MonitorApplication.Filters;
+using MonitorApplication_USERS_DAL.Contexts;
 
 namespace MonitorApplication
 {
@@ -46,7 +48,11 @@ namespace MonitorApplication
             // services.AddSingleton<IScheduledTask, QuoteOfTheDayTask>();
             // services.AddSingleton<IScheduledTask, SomeOtherTask>();
             services.AddScheduler((sender, args) => { args.SetObserved(); });
-            
+
+            var connection = Configuration.GetConnectionString("UsersDatabase");
+            services.AddDbContext<UsersContext>(options =>
+                options.UseSqlServer(connection, b => b.MigrationsAssembly("Monitor_Application_USERS_DAL")));
+
             // filters
             services.AddScoped<FilterWithDI>();
 
