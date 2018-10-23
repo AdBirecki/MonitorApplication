@@ -18,6 +18,9 @@ namespace MonitorApplication_USERS_DAL.Contexts
         public DbSet<AbstractOrder> AbstractOrders { get; set; }
         public DbSet<MineralPriceData> MineralPriceData { get; set; }
 
+        public OrdersContext(DbContextOptions option) : base(option) {
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
 
         }
@@ -72,27 +75,25 @@ namespace MonitorApplication_USERS_DAL.Contexts
             });
 
             modelBuilder.Entity<GoldOrder>(entity => {
-                entity.HasKey(e => e.OrderId);
                 entity.HasBaseType<AbstractOrder>();
             });
 
             modelBuilder.Entity<SilverOrder>(entity => {
-                entity.HasKey(e => e.OrderId);
                 entity.HasBaseType<AbstractOrder>();
             });
 
             modelBuilder.Entity<PalladiumOrder>(entity => {
-                entity.HasKey(e => e.OrderId);
-                entity.Property(b => b.PalladiumFiness);
                 entity.HasBaseType<AbstractOrder>();
             });
 
             modelBuilder.Entity<MineralPriceData>(entity =>
             {
+                entity.HasKey(e => e.Id);
+
                 entity
                     .HasOne(e => e.Order)
                     .WithOne(f => f.PriceChange)
-                    .IsRequired(false);
+                    .HasForeignKey<AbstractOrder>(fk => fk.OrderId);
             });
         }
     }

@@ -51,7 +51,7 @@ namespace MonitorApplication
 
             var connection = Configuration.GetConnectionString("UsersDatabase");
             services.AddDbContext<OrdersContext>(options =>
-                options.UseSqlServer(connection, b => b.MigrationsAssembly("Monitor_Application_USERS_DAL")));
+                options.UseSqlServer(connection, b => b.MigrationsAssembly("MonitorApplication_USERS_DAL")));
 
             // filters
             services.AddScoped<FilterWithDI>();

@@ -8,6 +8,8 @@ namespace MonitorApplication_Models.OrderModel
 {
     public class MineralPriceData
     {
+        public int Id { get; set; }
+
         public Currency Currency { get; set; }
 
         public AbstractOrder Order { get; set; }
