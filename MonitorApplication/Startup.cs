@@ -50,7 +50,7 @@ namespace MonitorApplication
             services.AddScheduler((sender, args) => { args.SetObserved(); });
 
             var connection = Configuration.GetConnectionString("UsersDatabase");
-            services.AddDbContext<UsersContext>(options =>
+            services.AddDbContext<OrdersContext>(options =>
                 options.UseSqlServer(connection, b => b.MigrationsAssembly("Monitor_Application_USERS_DAL")));
 
             // filters
