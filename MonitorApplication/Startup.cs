@@ -22,6 +22,7 @@ using MonitorApplication_Scheduler.SchedulingModels.Models;
 using MonitorApplication_BL.Module;
 using MonitorApplication.Filters;
 using MonitorApplication_USERS_DAL.Contexts;
+using MonitorApplication_Utilities.Extensions;
 
 namespace MonitorApplication
 {
@@ -69,6 +70,7 @@ namespace MonitorApplication
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+            app.PrepareDatabase();
             if (loggerFactory != null)
             {
                 loggerFactory.AddConsole(Configuration.GetSection("Logging"));
