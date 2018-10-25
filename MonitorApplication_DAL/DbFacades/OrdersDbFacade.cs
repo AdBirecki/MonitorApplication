@@ -1,24 +1,26 @@
-﻿using MonitorApplication_Models.UserModels;
+﻿using Autofac;
+using MonitorApplication_Models.UserModels;
 using MonitorApplication_USERS_DAL.Contexts;
+using MonitorApplication_USERS_DAL.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace MonitorApplication_USERS_DAL.DbFacades
 {
-    public class OrdersDbFacade : IDisposable
+    public class OrdersDbFacade : IDisposable, IOrdersDbFacade
     {
         private readonly OrdersContext _orderContext;
-        private readonly Autofac.IContainer _container;
-        public OrdersDbFacade(OrdersContext ordersContext, Autofac.IContainer container)
+        public OrdersDbFacade(OrdersContext ordersContext)
         {
             _orderContext = ordersContext;
-            _container = container;
         }
 
-        public IQueryable<User> User {
+        public IQueryable<User> Users
+        {
             get { return _orderContext.Users; }
         }
 
@@ -30,7 +32,14 @@ namespace MonitorApplication_USERS_DAL.DbFacades
             get { return _orderContext.PurchaseOrders; }
         }
 
+        public int SaveChanges() {
+           return _orderContext.SaveChanges();
+        }
 
+        public async Task<int> SaveChangesAsync()
+        {
+            return await _orderContext.SaveChangesAsync();
+        }
 
         public void Dispose()
         {

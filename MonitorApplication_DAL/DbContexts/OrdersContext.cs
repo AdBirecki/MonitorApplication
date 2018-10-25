@@ -44,6 +44,9 @@ namespace MonitorApplication_USERS_DAL.Contexts
                 entity
                     .HasMany(e => e.PurchaseOrders)
                     .WithOne(f => f.UserOrders);
+
+
+                entity.Property(e => e.OrderInfo).HasMaxLength(1024);
             });
 
             modelBuilder.Entity<PurchaseOrder>(entity =>

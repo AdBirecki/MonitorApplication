@@ -23,6 +23,7 @@ using MonitorApplication_BL.Module;
 using MonitorApplication.Filters;
 using MonitorApplication_USERS_DAL.Contexts;
 using MonitorApplication_Utilities.Extensions;
+using MonitorApplication_USERS_DAL.Module;
 
 namespace MonitorApplication
 {
@@ -61,7 +62,7 @@ namespace MonitorApplication
             container.Populate(services);
             container.RegisterModule<DispatcherModule>();
             container.RegisterModule<HandlerModule>();
-
+            container.RegisterModule<DbModules>();
             AppContainer = container.Build();
 
             return new AutofacServiceProvider(AppContainer);
