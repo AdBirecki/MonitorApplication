@@ -1,6 +1,6 @@
 ﻿namespace MonitorApplication_BL.Queries.Interfaces
 {
-    public interface IQuery
+    public interface IQuery<TResponse>
     {
     }
 }

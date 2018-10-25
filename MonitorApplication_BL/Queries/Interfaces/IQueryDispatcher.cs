@@ -2,6 +2,6 @@
 {
     public interface IQueryDispatcher
     {
-        void Execute<TQuery>(TQuery tQuery) where TQuery : IQuery;
+        TResult Execute<TQuery,TResult>(TQuery tQuery) where TQuery : IQuery<TResult>;
     }
 }

@@ -18,19 +18,19 @@ namespace MonitorApplication.Filters
         }
         public void OnActionExecuted(ActionExecutedContext context)
         {
-            _logger.LogCritical("OnActionAsync start");
+            _logger.LogInformation("OnActionAsync start");
         }
 
         public void OnActionExecuting(ActionExecutingContext context)
         {
-            _logger.LogCritical("OnActionAsync end");
+            _logger.LogInformation("OnActionAsync end");
         }
 
         public async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
         {
-            _logger.LogCritical("OnActionAsync start");
+            _logger.LogInformation("OnActionAsync start");
             await next();
-            _logger.LogCritical("OnActionAsync end");
+            _logger.LogInformation("OnActionAsync end");
         }
     }
 }

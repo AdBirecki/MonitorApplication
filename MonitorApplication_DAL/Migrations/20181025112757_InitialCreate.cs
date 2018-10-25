@@ -35,16 +35,16 @@ namespace MonitorApplication_USERS_DAL.Migrations
                 name: "Users",
                 columns: table => new
                 {
-                    UserId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    UserId = table.Column<int>(nullable: false),
                     Name = table.Column<string>(nullable: true),
                     Surname = table.Column<string>(nullable: true),
+                    Username = table.Column<string>(nullable: false),
                     Password = table.Column<string>(nullable: true),
                     Age = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Users", x => x.UserId);
+                    table.PrimaryKey("PK_Users", x => new { x.UserId, x.Username });
                 });
 
             migrationBuilder.CreateTable(
@@ -53,16 +53,18 @@ namespace MonitorApplication_USERS_DAL.Migrations
                 {
                     OrderId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    UserId = table.Column<int>(nullable: true)
+                    UserId = table.Column<int>(nullable: true),
+                    Username = table.Column<string>(nullable: true),
+                    OrderInfo = table.Column<string>(maxLength: 1024, nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_UserOrders", x => x.OrderId);
                     table.ForeignKey(
-                        name: "FK_UserOrders_Users_UserId",
-                        column: x => x.UserId,
+                        name: "FK_UserOrders_Users_UserId_Username",
+                        columns: x => new { x.UserId, x.Username },
                         principalTable: "Users",
-                        principalColumn: "UserId",
+                        principalColumns: new[] { "UserId", "Username" },
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -132,9 +134,9 @@ namespace MonitorApplication_USERS_DAL.Migrations
                 column: "UserOrdersOrderId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_UserOrders_UserId",
+                name: "IX_UserOrders_UserId_Username",
                 table: "UserOrders",
-                column: "UserId");
+                columns: new[] { "UserId", "Username" });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

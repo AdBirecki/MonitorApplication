@@ -28,7 +28,7 @@ namespace MonitorApplication_BL.Commands.Handler
         public void Execute(RegisterUserCommand command)
         {
             User user = new User {
-                Name = command.UserName,
+                Username = command.UserName,
                 Password = command.Password
             };
 

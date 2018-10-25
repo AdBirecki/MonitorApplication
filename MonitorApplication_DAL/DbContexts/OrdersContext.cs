@@ -30,8 +30,8 @@ namespace MonitorApplication_USERS_DAL.Contexts
 
             modelBuilder.Entity<User>(entity =>
             {
-                entity
-                    .HasKey(e => e.UserId);
+            entity
+                .HasKey(e => new { e.UserId, e.Username});
                 entity
                     .HasMany(e => e.UserOrders)
                     .WithOne(f => f.User);

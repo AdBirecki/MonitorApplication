@@ -102,9 +102,9 @@ namespace MonitorApplication_USERS_DAL.Migrations
 
             modelBuilder.Entity("MonitorApplication_Models.UserModels.User", b =>
                 {
-                    b.Property<int>("UserId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<int>("UserId");
+
+                    b.Property<string>("Username");
 
                     b.Property<int>("Age");
 
@@ -114,7 +114,7 @@ namespace MonitorApplication_USERS_DAL.Migrations
 
                     b.Property<string>("Surname");
 
-                    b.HasKey("UserId");
+                    b.HasKey("UserId", "Username");
 
                     b.ToTable("Users");
                 });
@@ -130,9 +130,11 @@ namespace MonitorApplication_USERS_DAL.Migrations
 
                     b.Property<int?>("UserId");
 
+                    b.Property<string>("Username");
+
                     b.HasKey("OrderId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UserId", "Username");
 
                     b.ToTable("UserOrders");
                 });
@@ -196,7 +198,7 @@ namespace MonitorApplication_USERS_DAL.Migrations
                 {
                     b.HasOne("MonitorApplication_Models.UserModels.User", "User")
                         .WithMany("UserOrders")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId", "Username");
                 });
 #pragma warning restore 612, 618
         }

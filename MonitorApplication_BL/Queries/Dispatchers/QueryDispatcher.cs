@@ -14,10 +14,10 @@ namespace MonitorApplication_BL.Queries.Dispatchers
             _componentContext = componentContext;
         }
 
-        public void Execute<TQuery>(TQuery tQuery) where TQuery : IQuery
+        public TResponse Execute<TQuery, TResponse>(TQuery tQuery) where TQuery : IQuery<TResponse>
         {
-            IQueryHandler<TQuery> handler = _componentContext.Resolve<IQueryHandler<TQuery>>();
-            handler.Execute(tQuery);
+            IQueryHandler<TQuery, TResponse> handler = _componentContext.Resolve<IQueryHandler<TQuery, TResponse>>();
+            return handler.Execute(tQuery);
         }
     }
 }

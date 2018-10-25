@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,11 +10,12 @@ using MonitorApplication.Filters;
 using MonitorApplication_BL.Commands.Interfaces;
 using MonitorApplication_BL.Commands.RegisterCommand;
 using MonitorApplication_BL.Queries.Interfaces;
+using MonitorApplication_BL.Queries.RetriveUserQueries;
+using MonitorApplication_Models.UserModels;
 
 namespace MonitorApplication.Controllers
 {
-    [Route("api/[controller]")]
-   
+    [Route("api/[controller]/[Action]")]
     public class UsersController : ApiBaseController
     {
         private readonly ICommandDispatcher _commandDispatcher;
@@ -26,10 +28,24 @@ namespace MonitorApplication.Controllers
 
         [HttpPost]
         [ServiceFilter(typeof(FilterWithDI))]
-        public IActionResult Post([FromBody] RegisterUserCommand command)
+        public IActionResult PostUser([FromBody] RegisterUserCommand command)
         {
             _commandDispatcher.Execute(command);
             return Ok("");
+        }
+
+        [HttpPost]
+        public IActionResult GetUser([FromBody] RetriveUserQuery query)
+        {
+            User user = _queryDispatcher.Execute<RetriveUserQuery,User>(query);
+            return Ok(user);
+        }
+
+        [HttpPost]
+        public IActionResult GetAllUsers([FromBody] RetriveAllUsersQuery query)
+        {
+            IEnumerable allUsers = _queryDispatcher.Execute<RetriveAllUsersQuery, IEnumerable<User>>(query);
+            return Ok(allUsers);
         }
     }
 }

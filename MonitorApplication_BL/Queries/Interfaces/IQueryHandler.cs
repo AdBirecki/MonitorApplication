@@ -1,7 +1,7 @@
 ﻿namespace MonitorApplication_BL.Queries.Interfaces
 {
-    public interface IQueryHandler<TQuery> where TQuery : IQuery
+    public interface IQueryHandler<TQuery,TResponse> where TQuery : IQuery<TResponse>
     {
-        void Execute(TQuery tQuery);
+        TResponse Execute(TQuery tQuery);
     }
 }
