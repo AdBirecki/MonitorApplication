@@ -10,8 +10,8 @@ using MonitorApplication_USERS_DAL.Contexts;
 
 namespace MonitorApplication_USERS_DAL.Migrations
 {
-    [DbContext(typeof(OrdersContext))]
-    [Migration("20181025112757_InitialCreate")]
+    [DbContext(typeof(OrdersDbContext))]
+    [Migration("20181025131928_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -21,6 +21,19 @@ namespace MonitorApplication_USERS_DAL.Migrations
                 .HasAnnotation("ProductVersion", "2.1.4-rtm-31024")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("MonitorApplication_Models.FileModels.UserAppFile", b =>
+                {
+                    b.Property<int>("FileId");
+
+                    b.Property<int>("UserId");
+
+                    b.HasKey("FileId", "UserId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserAppFile");
+                });
 
             modelBuilder.Entity("MonitorApplication_Models.Interfaces.AbstractOrder", b =>
                 {
@@ -80,6 +93,21 @@ namespace MonitorApplication_USERS_DAL.Migrations
                     b.ToTable("MineralPriceData");
                 });
 
+            modelBuilder.Entity("MonitorApplication_Models.PicturesModels.AppFile", b =>
+                {
+                    b.Property<int>("AppFileId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<byte[]>("Content");
+
+                    b.Property<string>("OriginalUploader");
+
+                    b.HasKey("AppFileId");
+
+                    b.ToTable("AppFile");
+                });
+
             modelBuilder.Entity("MonitorApplication_Models.UserModels.PurchaseOrder", b =>
                 {
                     b.Property<int>("PurchaseId")
@@ -104,9 +132,9 @@ namespace MonitorApplication_USERS_DAL.Migrations
 
             modelBuilder.Entity("MonitorApplication_Models.UserModels.User", b =>
                 {
-                    b.Property<int>("UserId");
-
-                    b.Property<string>("Username");
+                    b.Property<int>("UserId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("Age");
 
@@ -116,7 +144,13 @@ namespace MonitorApplication_USERS_DAL.Migrations
 
                     b.Property<string>("Surname");
 
-                    b.HasKey("UserId", "Username");
+                    b.Property<string>("Username");
+
+                    b.HasKey("UserId");
+
+                    b.HasIndex("Username")
+                        .IsUnique()
+                        .HasFilter("[Username] IS NOT NULL");
 
                     b.ToTable("Users");
                 });
@@ -132,11 +166,9 @@ namespace MonitorApplication_USERS_DAL.Migrations
 
                     b.Property<int?>("UserId");
 
-                    b.Property<string>("Username");
-
                     b.HasKey("OrderId");
 
-                    b.HasIndex("UserId", "Username");
+                    b.HasIndex("UserId");
 
                     b.ToTable("UserOrders");
                 });
@@ -177,6 +209,19 @@ namespace MonitorApplication_USERS_DAL.Migrations
                     b.HasDiscriminator().HasValue(1);
                 });
 
+            modelBuilder.Entity("MonitorApplication_Models.FileModels.UserAppFile", b =>
+                {
+                    b.HasOne("MonitorApplication_Models.PicturesModels.AppFile", "UplaodedFile")
+                        .WithMany("UserAppFiles")
+                        .HasForeignKey("FileId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("MonitorApplication_Models.UserModels.User", "User")
+                        .WithMany("UserAppFiles")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
             modelBuilder.Entity("MonitorApplication_Models.Interfaces.AbstractOrder", b =>
                 {
                     b.HasOne("MonitorApplication_Models.OrderModel.MineralPriceData", "PriceChange")
@@ -200,7 +245,7 @@ namespace MonitorApplication_USERS_DAL.Migrations
                 {
                     b.HasOne("MonitorApplication_Models.UserModels.User", "User")
                         .WithMany("UserOrders")
-                        .HasForeignKey("UserId", "Username");
+                        .HasForeignKey("UserId");
                 });
 #pragma warning restore 612, 618
         }

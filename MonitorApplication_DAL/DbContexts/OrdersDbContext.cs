@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
+using MonitorApplication_Models.FileModels;
 using MonitorApplication_Models.Interfaces;
 using MonitorApplication_Models.OrderModel;
+using MonitorApplication_Models.PicturesModels;
 using MonitorApplication_Models.RareMinerals;
 using MonitorApplication_Models.Units;
 using MonitorApplication_Models.UserModels;
 
 namespace MonitorApplication_USERS_DAL.Contexts
 {
-    public class OrdersContext : DbContext
+    public class OrdersDbContext : DbContext
     {
         public DbSet<User> Users { get; set; }
         public DbSet<UserOrders> UserOrders {get; set;}
@@ -18,7 +20,7 @@ namespace MonitorApplication_USERS_DAL.Contexts
         public DbSet<AbstractOrder> AbstractOrders { get; set; }
         public DbSet<MineralPriceData> MineralPriceData { get; set; }
 
-        public OrdersContext(DbContextOptions option) : base(option) {
+        public OrdersDbContext(DbContextOptions option) : base(option) {
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
@@ -27,15 +29,41 @@ namespace MonitorApplication_USERS_DAL.Contexts
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
+          
             modelBuilder.Entity<User>(entity =>
             {
             entity
-                .HasKey(e => new { e.UserId, e.Username});
-                entity
+                .HasKey(e =>  e.UserId);
+
+            entity
+                .HasIndex(u => u.Username)
+                .IsUnique();
+
+            entity
                     .HasMany(e => e.UserOrders)
                     .WithOne(f => f.User);
             });
+
+            #region files many to many relationship
+            modelBuilder.Entity<UserAppFile>(entity => {
+                entity.HasKey(e => new { e.FileId , e.UserId});
+
+                entity
+                    .HasOne(fk => fk.User)
+                    .WithMany(u => u.UserAppFiles)
+                    .HasForeignKey(fk => fk.UserId);
+
+                entity
+                    .HasOne(fk => fk.UplaodedFile)
+                    .WithMany(f => f.UserAppFiles)
+                    .HasForeignKey(fk => fk.FileId);
+            });
+
+            modelBuilder.Entity<AppFile>(entity =>
+            {
+                entity.HasKey(e => e.AppFileId);
+            });
+            #endregion
 
             modelBuilder.Entity<UserOrders>(entity =>
             {
@@ -98,6 +126,8 @@ namespace MonitorApplication_USERS_DAL.Contexts
                     .WithOne(f => f.PriceChange)
                     .HasForeignKey<AbstractOrder>(fk => fk.OrderId);
             });
+
+
         }
     }
 }

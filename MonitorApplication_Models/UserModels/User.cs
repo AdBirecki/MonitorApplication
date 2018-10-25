@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MonitorApplication_Models.FileModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
@@ -15,5 +16,6 @@ namespace MonitorApplication_Models.UserModels
         public int Age { get; set; }
 
         public virtual List<UserOrders> UserOrders {get; set;}
+        public virtual List<UserAppFile> UserAppFiles { get; set; }
     }
 }

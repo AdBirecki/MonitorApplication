@@ -13,8 +13,8 @@ namespace MonitorApplication_USERS_DAL.DbFacades
 {
     public class OrdersDbFacade : IDisposable, IOrdersDbFacade
     {
-        private readonly OrdersContext _orderContext;
-        public OrdersDbFacade(OrdersContext ordersContext)
+        private readonly OrdersDbContext _orderContext;
+        public OrdersDbFacade(OrdersDbContext ordersContext)
         {
             _orderContext = ordersContext;
         }

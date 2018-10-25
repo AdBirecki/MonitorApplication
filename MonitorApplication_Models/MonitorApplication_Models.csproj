@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="FileModels\UsersImage.cs~RF15d005c.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Newtonsoft.json" Version="11.0.2" />
   </ItemGroup>
 

@@ -9,6 +9,20 @@ namespace MonitorApplication_USERS_DAL.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "AppFile",
+                columns: table => new
+                {
+                    AppFileId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    OriginalUploader = table.Column<string>(nullable: true),
+                    Content = table.Column<byte[]>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AppFile", x => x.AppFileId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "MineralPriceData",
                 columns: table => new
                 {
@@ -35,16 +49,41 @@ namespace MonitorApplication_USERS_DAL.Migrations
                 name: "Users",
                 columns: table => new
                 {
-                    UserId = table.Column<int>(nullable: false),
+                    UserId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(nullable: true),
                     Surname = table.Column<string>(nullable: true),
-                    Username = table.Column<string>(nullable: false),
+                    Username = table.Column<string>(nullable: true),
                     Password = table.Column<string>(nullable: true),
                     Age = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Users", x => new { x.UserId, x.Username });
+                    table.PrimaryKey("PK_Users", x => x.UserId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "UserAppFile",
+                columns: table => new
+                {
+                    UserId = table.Column<int>(nullable: false),
+                    FileId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserAppFile", x => new { x.FileId, x.UserId });
+                    table.ForeignKey(
+                        name: "FK_UserAppFile_AppFile_FileId",
+                        column: x => x.FileId,
+                        principalTable: "AppFile",
+                        principalColumn: "AppFileId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_UserAppFile_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "UserId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -54,17 +93,16 @@ namespace MonitorApplication_USERS_DAL.Migrations
                     OrderId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     UserId = table.Column<int>(nullable: true),
-                    Username = table.Column<string>(nullable: true),
                     OrderInfo = table.Column<string>(maxLength: 1024, nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_UserOrders", x => x.OrderId);
                     table.ForeignKey(
-                        name: "FK_UserOrders_Users_UserId_Username",
-                        columns: x => new { x.UserId, x.Username },
+                        name: "FK_UserOrders_Users_UserId",
+                        column: x => x.UserId,
                         principalTable: "Users",
-                        principalColumns: new[] { "UserId", "Username" },
+                        principalColumn: "UserId",
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -134,9 +172,21 @@ namespace MonitorApplication_USERS_DAL.Migrations
                 column: "UserOrdersOrderId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_UserOrders_UserId_Username",
+                name: "IX_UserAppFile_UserId",
+                table: "UserAppFile",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserOrders_UserId",
                 table: "UserOrders",
-                columns: new[] { "UserId", "Username" });
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Users_Username",
+                table: "Users",
+                column: "Username",
+                unique: true,
+                filter: "[Username] IS NOT NULL");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -145,10 +195,16 @@ namespace MonitorApplication_USERS_DAL.Migrations
                 name: "AbstractOrders");
 
             migrationBuilder.DropTable(
+                name: "UserAppFile");
+
+            migrationBuilder.DropTable(
                 name: "MineralPriceData");
 
             migrationBuilder.DropTable(
                 name: "PurchaseOrders");
+
+            migrationBuilder.DropTable(
+                name: "AppFile");
 
             migrationBuilder.DropTable(
                 name: "UserOrders");

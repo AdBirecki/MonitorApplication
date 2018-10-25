@@ -14,11 +14,11 @@ namespace MonitorApplication_BL.Commands.Handler
 {
     public class RegisterUserHandler : ICommandHandler<RegisterUserCommand>
     {
-        private readonly OrdersContext _orderDbContext;
+        private readonly OrdersDbContext _orderDbContext;
         private readonly ILoggerFactory _loggerFactory;
         private readonly ILogger _logger;
 
-        public RegisterUserHandler(ILoggerFactory loggerFactory, OrdersContext orderDbContext )
+        public RegisterUserHandler(ILoggerFactory loggerFactory, OrdersDbContext orderDbContext )
         {
             _orderDbContext = orderDbContext;
             _loggerFactory = loggerFactory;

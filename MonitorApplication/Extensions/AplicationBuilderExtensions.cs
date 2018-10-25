@@ -15,7 +15,7 @@ namespace MonitorApplication_Utilities.Extensions
         {
             using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope()) {
                 
-                OrdersContext context = serviceScope.ServiceProvider.GetRequiredService<OrdersContext>();
+                OrdersDbContext context = serviceScope.ServiceProvider.GetRequiredService<OrdersDbContext>();
                 //  context.Database.EnsureDeleted();
                 context.Database.Migrate();
             }
