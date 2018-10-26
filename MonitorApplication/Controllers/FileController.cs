@@ -19,7 +19,7 @@ namespace MonitorApplication.Controllers
     [Route("api/[controller]/[action]")]
     [ApiController]
     public class FileController : ApiBaseController
-    {
+    { /* https://docs.microsoft.com/pl-pl/aspnet/core/mvc/models/file-uploads?view=aspnetcore-2.1 TODO !!! */
         private readonly ICommandDispatcher _commandDispatcher;
         private readonly IQueryDispatcher _queryDispatcher;
         private readonly ILoggerFactory _loggerFactory;
