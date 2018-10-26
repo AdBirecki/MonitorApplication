@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MonitorApplication_BL.Commands.RegisterCommand
 {
-    public class SaveFileCommand : ICommand, IFormFile
+    public class SaveFileCommand : ICommand
     {
 
     }
