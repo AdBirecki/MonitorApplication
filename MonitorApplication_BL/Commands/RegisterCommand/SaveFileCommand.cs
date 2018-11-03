@@ -7,6 +7,7 @@ namespace MonitorApplication_BL.Commands.RegisterCommand
 {
     public class SaveFileCommand : ICommand
     {
-
+        public string UploaderName {get; set;}
+        public ICollection<byte[]> formFiles {get; set;} 
     }
 }

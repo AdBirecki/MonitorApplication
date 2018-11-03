@@ -24,6 +24,7 @@ using MonitorApplication.Filters;
 using MonitorApplication_USERS_DAL.Contexts;
 using MonitorApplication_Utilities.Extensions;
 using MonitorApplication_USERS_DAL.Module;
+using Microsoft.AspNetCore.Http.Features;
 
 namespace MonitorApplication
 {
@@ -44,6 +45,11 @@ namespace MonitorApplication
                 .AddSingleton(Configuration)
                 .AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.Configure<FormOptions>(x => {
+                x.ValueLengthLimit = int.MaxValue;
+                x.MultipartBodyLengthLimit = int.MaxValue;
+            });
 
             services.AddHttpClient<GoldClient>(client => client.BaseAddress = new Uri(Configuration["GoldDataUri"]));
             services.AddSingleton<IScheduledTask, GoldPriceDataRecoveryTask>();

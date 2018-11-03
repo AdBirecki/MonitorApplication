@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -32,9 +33,24 @@ namespace MonitorApplication.Controllers
         }
 
         [HttpPost]
-        public IActionResult PostFile([FromBody] SaveFileCommand command)
+        [RequestSizeLimit(int.MaxValue)]
+        [RequestFormLimitsAttribute(
+            ValueLengthLimit = int.MaxValue,
+            MultipartBodyLengthLimit = int.MaxValue,
+            MultipartHeadersLengthLimit = int.MaxValue)]
+        public async Task<IActionResult> PostFiles(List<IFormFile> files)
         {
-            _commandDispatcher.Execute(command);
+            SaveFileCommand saveFileCommand = new SaveFileCommand();
+                foreach(var formFile in files) {
+                    if (formFile.Length > 0)  {
+                        using (MemoryStream ms = new MemoryStream()) {
+                            var cancelSource = new CancellationTokenSource();
+                                await formFile.CopyToAsync(ms,cancelSource.Token);
+                                saveFileCommand.formFiles.Add(ms.ToArray());
+                        }
+                    }
+                }
+
             return Ok("Ok");
         }
 
@@ -86,7 +102,7 @@ namespace MonitorApplication.Controllers
                     }
                 }
             }
-
+           
             return Ok(new { count = files.Count, size, filePath });
         }
     }
