@@ -33,15 +33,14 @@ namespace MonitorApplication.Controllers
         }
 
         [HttpPost]
-        [RequestSizeLimit(int.MaxValue)]
         [RequestFormLimitsAttribute(
             ValueLengthLimit = int.MaxValue,
             MultipartBodyLengthLimit = int.MaxValue,
             MultipartHeadersLengthLimit = int.MaxValue)]
-        public async Task<IActionResult> PostFiles(List<IFormFile> files)
+        public async Task<IActionResult> PostFiles([FromForm]List<IFormFile> Files)
         {
             SaveFileCommand saveFileCommand = new SaveFileCommand();
-                foreach(var formFile in files) {
+                foreach(var formFile in Files) {
                     if (formFile.Length > 0)  {
                         using (MemoryStream ms = new MemoryStream()) {
                             var cancelSource = new CancellationTokenSource();
@@ -49,9 +48,8 @@ namespace MonitorApplication.Controllers
                                 saveFileCommand.formFiles.Add(ms.ToArray());
                         }
                     }
-                }
-
-            return Ok("Ok");
+                }  
+        return Ok(new { count = Files.Count});
         }
 
         [HttpPost]
