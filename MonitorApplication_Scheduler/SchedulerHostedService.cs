@@ -16,7 +16,7 @@ namespace MonitorApplication_Scheduler
 
         public SchedulerHostedService(IEnumerable<IScheduledTask> scheduledTasks)
         {
-            DateTime referenceTime = DateTime.UtcNow;
+            DateTime referenceTime = DateTime.Now;
             foreach (var scheduledTask in scheduledTasks)
             {
                 _scheduledTasks.Add(new SchedulerTaskWrapper
