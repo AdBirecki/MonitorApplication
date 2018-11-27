@@ -16,7 +16,9 @@ namespace MonitorApplication_BL.Queries.Handler
         private readonly ILoggerFactory _loggerFactory;
         private readonly ILogger _logger;
 
-        public RetriveUserHandler(ILoggerFactory loggerFactory, IOrdersDbFacade orderDbfacade) {
+        public RetriveUserHandler(
+            ILoggerFactory loggerFactory, 
+            IOrdersDbFacade orderDbfacade) {
             _logger = loggerFactory.CreateLogger<RetriveUserHandler>();
             _orderDbfacade = orderDbfacade;
         }
@@ -31,7 +33,7 @@ namespace MonitorApplication_BL.Queries.Handler
                 return user;
             }
             catch (Exception ex) {
-                _logger.LogError($"User with a given username: { tQuery.UserName} NotFiniteNumberException found!");
+                _logger.LogError($"User with a given username: { tQuery.UserName} Not found!");
             }
             return result;
         }

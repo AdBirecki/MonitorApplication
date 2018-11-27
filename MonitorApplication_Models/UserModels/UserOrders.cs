@@ -9,6 +9,6 @@ namespace MonitorApplication_Models.UserModels
         public int OrderId { get; set; }
         public User User { get; set; }
         public string OrderInfo { get; set; }
-        public virtual List<PurchaseOrder> PurchaseOrders { get; set; }
+        public List<PurchaseOrder> PurchaseOrders { get; set; }
     }
 }

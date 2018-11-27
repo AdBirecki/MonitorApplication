@@ -38,7 +38,6 @@ namespace MonitorApplication
             Configuration = configuration;
         }
                
-        // This method gets called by the runtime. Use this method to add services to the container.
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             services
@@ -46,23 +45,22 @@ namespace MonitorApplication
                 .AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
+            /*
             services.Configure<FormOptions>(x => {
                 x.ValueLengthLimit = int.MaxValue;
                 x.MultipartBodyLengthLimit = int.MaxValue;
-            });
+            });*/
 
             services.AddHttpClient<GoldClient>(client => client.BaseAddress = new Uri(Configuration["GoldDataUri"]));
             services.AddSingleton<IScheduledTask, GoldPriceDataRecoveryTask>();
-            // services.AddSingleton<IScheduledTask, QuoteOfTheDayTask>();
-            // services.AddSingleton<IScheduledTask, SomeOtherTask>();
             services.AddScheduler((sender, args) => { args.SetObserved(); });
 
             var connection = Configuration.GetConnectionString("UsersDatabase");
             services.AddDbContext<OrdersDbContext>(options =>
-                options.UseSqlServer(connection, b => b.MigrationsAssembly("MonitorApplication_USERS_DAL")));
+                options.UseSqlServer(connection, b => b.MigrationsAssembly("MonitorApplication_DAL")));
 
             // filters
-            services.AddScoped<FilterWithDI>();
+            // services.AddScoped<FilterWithDI>();
 
             ContainerBuilder container = new ContainerBuilder();
             container.Populate(services);
@@ -74,7 +72,6 @@ namespace MonitorApplication
             return new AutofacServiceProvider(AppContainer);
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             app.PrepareDatabase();
@@ -88,13 +85,9 @@ namespace MonitorApplication
             {
                 app.UseDeveloperExceptionPage();
             }
-            else
-            {
-                app.UseHsts();
-            }
 
-            app.UseHttpsRedirection();
-            app.UseMvc();
+            // app.UseHttpsRedirection();
+            // app.UseMvc();
         }
     }
 }

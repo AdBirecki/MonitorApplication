@@ -15,7 +15,7 @@ namespace MonitorApplication_Models.UserModels
         public string Password { get; set; }
         public int Age { get; set; }
 
-        public virtual List<UserOrders> UserOrders {get; set;}
-        public virtual List<UserAppFile> UserAppFiles { get; set; }
+        public List<UserOrders> UserOrders {get; set;}
+        public List<UserAppFile> UserAppFiles { get; set; }
     }
 }

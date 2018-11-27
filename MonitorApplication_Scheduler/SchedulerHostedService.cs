@@ -17,7 +17,6 @@ namespace MonitorApplication_Scheduler
         public SchedulerHostedService(IEnumerable<IScheduledTask> scheduledTasks)
         {
             DateTime referenceTime = DateTime.UtcNow;
-
             foreach (var scheduledTask in scheduledTasks)
             {
                 _scheduledTasks.Add(new SchedulerTaskWrapper
@@ -56,7 +55,7 @@ namespace MonitorApplication_Scheduler
                     {
                         try
                         {
-                            await taskThatShouldRun.Task.ExecuteAsync(cancellationToken);
+                         await taskThatShouldRun.Task.ExecuteAsync(cancellationToken);
                         }
                         catch (Exception ex)
                         {

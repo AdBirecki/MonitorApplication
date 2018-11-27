@@ -17,7 +17,7 @@
   <ItemGroup>
     <ProjectReference Include="..\MonitorApplicationUtilities\MonitorApplication_Utilities.csproj" />
     <ProjectReference Include="..\MonitorApplication_BL\MonitorApplication_BL.csproj" />
-    <ProjectReference Include="..\MonitorApplication_DAL\MonitorApplication_USERS_DAL.csproj" />
+    <ProjectReference Include="..\MonitorApplication_DAL\MonitorApplication_DAL.csproj" />
     <ProjectReference Include="..\MonitorApplication_HttpClient\MonitorApplication_HttpClient.csproj" />
     <ProjectReference Include="..\MonitorApplication_Models\MonitorApplication_Models.csproj" />
     <ProjectReference Include="..\MonitorApplication_Scheduler\MonitorApplication_Scheduler.csproj" />

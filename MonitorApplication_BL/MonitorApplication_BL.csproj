@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MonitorApplication_DAL\MonitorApplication_USERS_DAL.csproj" />
+    <ProjectReference Include="..\MonitorApplication_DAL\MonitorApplication_DAL.csproj" />
   </ItemGroup>
 
   <ItemGroup>

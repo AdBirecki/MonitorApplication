@@ -13,10 +13,12 @@ namespace MonitorApplication_Utilities.Extensions
     {
         public static IApplicationBuilder PrepareDatabase(this IApplicationBuilder app)
         {
-            using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope()) {
-                
-                OrdersDbContext context = serviceScope.ServiceProvider.GetRequiredService<OrdersDbContext>();
-                //  context.Database.EnsureDeleted();
+            using (var serviceScope = app.ApplicationServices
+                .GetService<IServiceScopeFactory>()
+                .CreateScope()) {
+                OrdersDbContext context = serviceScope
+                    .ServiceProvider
+                    .GetRequiredService<OrdersDbContext>();
                 context.Database.Migrate();
             }
             return app;

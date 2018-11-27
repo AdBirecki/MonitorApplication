@@ -8,7 +8,7 @@ namespace MonitorApplication_Models.RareMinerals
 {
     public class GoldOrder : AbstractOrder
     { 
-        public double  GoldFiness { get; set; }
+        public double GoldFiness { get; set; }
         public int Carat { get; set; }
     }
 }

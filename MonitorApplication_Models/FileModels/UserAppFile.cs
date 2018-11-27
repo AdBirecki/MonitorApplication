@@ -13,6 +13,6 @@ namespace MonitorApplication_Models.FileModels
         public User User { get; set; }
 
         public int FileId { get; set; }
-        public AppFile UplaodedFile { get; set; }
+        public AppFile UploadedFile { get; set; }
     }
 }

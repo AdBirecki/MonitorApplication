@@ -5,9 +5,7 @@ VisualStudioVersion = 15.0.28010.2016
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonitorApplication", "MonitorApplication\MonitorApplication.csproj", "{2466F573-F54E-4DBF-B016-CED15D0EA1E9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonitorApplication_USERS_DAL", "MonitorApplication_DAL\MonitorApplication_USERS_DAL.csproj", "{162282D9-5873-4263-9D40-9BB1B34B4449}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonitorApplication_DAL_L", "MonitorApplication_DAL_L\MonitorApplication_DAL_L.csproj", "{3E953DAB-EAC6-4399-8157-7566B6168180}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonitorApplication_DAL", "MonitorApplication_DAL\MonitorApplication_DAL.csproj", "{162282D9-5873-4263-9D40-9BB1B34B4449}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonitorApplication_Models", "MonitorApplication_Models\MonitorApplication_Models.csproj", "{C80725F8-9F36-47A3-A28B-C25781E13519}"
 EndProject
@@ -33,10 +31,6 @@ Global
 		{162282D9-5873-4263-9D40-9BB1B34B4449}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{162282D9-5873-4263-9D40-9BB1B34B4449}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{162282D9-5873-4263-9D40-9BB1B34B4449}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3E953DAB-EAC6-4399-8157-7566B6168180}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3E953DAB-EAC6-4399-8157-7566B6168180}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3E953DAB-EAC6-4399-8157-7566B6168180}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3E953DAB-EAC6-4399-8157-7566B6168180}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C80725F8-9F36-47A3-A28B-C25781E13519}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C80725F8-9F36-47A3-A28B-C25781E13519}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C80725F8-9F36-47A3-A28B-C25781E13519}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -25,6 +25,7 @@ namespace MonitorApplication.Controllers
         private readonly IQueryDispatcher _queryDispatcher;
         private readonly ILoggerFactory _loggerFactory;
         private const int _multipartBoundaryLengthLimit = int.MaxValue;
+
         public FileController(ICommandDispatcher commandDispatcher, IQueryDispatcher queryDisaptcher, ILoggerFactory loggerFactory)
         {
             _commandDispatcher = commandDispatcher;
@@ -33,41 +34,21 @@ namespace MonitorApplication.Controllers
         }
 
         [HttpPost]
-        [RequestFormLimitsAttribute(
-            ValueLengthLimit = int.MaxValue,
-            MultipartBodyLengthLimit = int.MaxValue,
-            MultipartHeadersLengthLimit = int.MaxValue)]
-        public async Task<IActionResult> PostFiles([FromForm]List<IFormFile> Files)
-        {
-            SaveFileCommand saveFileCommand = new SaveFileCommand();
-                foreach(var formFile in Files) {
-                    if (formFile.Length > 0)  {
-                        using (MemoryStream ms = new MemoryStream()) {
-                            var cancelSource = new CancellationTokenSource();
-                                await formFile.CopyToAsync(ms,cancelSource.Token);
-                                saveFileCommand.formFiles.Add(ms.ToArray());
-                        }
-                    }
-                }  
-        return Ok(new { count = Files.Count});
-        }
-
-        [HttpPost]
         public async Task<IActionResult> UploadImages() {
-
             if(!MultipartRequestHelper.IsMultipartContentType(Request.ContentType)) {
-                return BadRequest($"Expected a multipart request, bu got {Request.ContentType}");
+                return BadRequest($"Expected a multipart request, but got {Request.ContentType}");
             }
-            var formAccumulator = new KeyValueAccumulator();
-            string targetFilePath = null;
 
+            string targetFilePath = null;
             var boundary = MultipartRequestHelper.GetBoundry(MediaTypeHeaderValue.Parse(Request.ContentType), _multipartBoundaryLengthLimit);
 
             var reader = new MultipartReader(boundary, HttpContext.Request.Body);
             var section = await reader.ReadNextSectionAsync();
 
             while (section != null) {
-                var hasContentDispositionHeader = ContentDispositionHeaderValue.TryParse(section.ContentDisposition, out ContentDispositionHeaderValue contentDispostion);
+                var hasContentDispositionHeader = ContentDispositionHeaderValue
+                    .TryParse(section.ContentDisposition, out ContentDispositionHeaderValue contentDispostion);
+
                 if(hasContentDispositionHeader)
                 {
                     if(MultipartRequestHelper.HasFileContentDisposition(contentDispostion))
@@ -81,27 +62,7 @@ namespace MonitorApplication.Controllers
                 }
             }
 
-            return Ok("");
-        }
-        
-        [HttpPost]
-        [DisableRequestSizeLimit]
-        public async Task<IActionResult> PostFormFileAsync(List<IFormFile> files) {
-            long size = files.Sum(f => f.Length);
-            var filePath = Path.GetTempFileName();
-
-            foreach (var formFile in files)
-            {
-                if (formFile.Length > 0)
-                {
-                    using (var stream = new FileStream(filePath, FileMode.Create))
-                    {
-                        await formFile.CopyToAsync(stream);
-                    }
-                }
-            }
-           
-            return Ok(new { count = files.Count, size, filePath });
+            return Ok();
         }
     }
 }

@@ -54,7 +54,7 @@ namespace MonitorApplication_USERS_DAL.Contexts
                     .HasForeignKey(fk => fk.UserId);
 
                 entity
-                    .HasOne(fk => fk.UplaodedFile)
+                    .HasOne(fk => fk.UploadedFile)
                     .WithMany(f => f.UserAppFiles)
                     .HasForeignKey(fk => fk.FileId);
             });

@@ -12,6 +12,6 @@ namespace MonitorApplication_Models.UserModels
         public DateTime dateTime { get; set; }
         public long TimeStamp { get; set; }
         public string Info { get; set; }
-        public virtual List<AbstractOrder> OrderData { get; set; }
+        public List<AbstractOrder> OrderData { get; set; }
     }
 }

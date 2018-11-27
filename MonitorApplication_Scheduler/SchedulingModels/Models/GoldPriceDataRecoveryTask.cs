@@ -16,7 +16,8 @@ namespace MonitorApplication_Scheduler.SchedulingModels.Models
         private readonly ILoggerFactory _loggerFactory;
         private readonly ILogger _logger;
 
-        public GoldPriceDataRecoveryTask(GoldClient goldPriceClient,
+        public GoldPriceDataRecoveryTask(
+            GoldClient goldPriceClient,
             ILoggerFactory loggerFactory)
         {
             _loggerFactory = loggerFactory;
@@ -31,7 +32,7 @@ namespace MonitorApplication_Scheduler.SchedulingModels.Models
             GoldDataDto goldData = await _httpClient.GetGoldValues<GoldDataDto>();
             ChangeDto dataChange = goldData.Children.FirstOrDefault();
             double goldValue = dataChange?.XauPrice ?? 0;
-            _logger.LogCritical($" Gold Data Received at : {DateTime.UtcNow} is {goldValue}");
+            _logger.LogWarning($" Gold Data Received at : {DateTime.UtcNow} is {goldValue}");
         }
     }
 }
