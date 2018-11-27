@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -27,13 +28,20 @@ namespace MonitorApplication_BL.Commands.Handler
 
         public void Execute(RegisterUserCommand command)
         {
+            /* We compute hash of a password. */
             User user = new User {
                 Username = command.UserName,
-                Password = command.Password
+                Password = ComputeHash(command.Password)
             };
 
             try
             {
+                if (_orderDbContext.Users.Any( (registeredUser) => registeredUser.Username.Equals(user.Username))) {
+                     string typeName = nameof(RegisterUserCommand);
+                    _logger.Log(LogLevel.Error, $" {typeName} caused an exception User with {user.Username} already exists!");
+                    return;
+                }
+
                 _orderDbContext.Users.Add(user);
                 _orderDbContext.SaveChanges();
             }
@@ -42,7 +50,14 @@ namespace MonitorApplication_BL.Commands.Handler
                 string typeName = nameof(RegisterUserCommand);
                 _logger.Log(LogLevel.Error, $" {typeName} caused an exception { exception.Message} ");
             }
-           _logger.LogWarning($"Register user command is being executed for user {command.UserName}  password: {command.Password}");
+        }
+
+        private string ComputeHash(string password) {
+                using (var md5 = MD5.Create())
+                {
+                    var result = md5.ComputeHash(Encoding.ASCII.GetBytes(password));
+                    return Encoding.ASCII.GetString(result);
+                }
         }
     }
 }

@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MonitorApplicationUtilities\MonitorApplication_Utilities.csproj" />
     <ProjectReference Include="..\MonitorApplication_DAL\MonitorApplication_DAL.csproj" />
   </ItemGroup>
 

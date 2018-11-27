@@ -16,7 +16,7 @@ namespace MonitorApplication_Utilities.Helpers
                 throw new InvalidDataException("Missing content-type boundary.");
             }
 
-            if(boundary.Length > lengthLimit)
+            if (boundary.Length > lengthLimit)
             {
                 throw new InvalidDataException($"Multipart boundary length limit {lengthLimit} exceeded.");
             }

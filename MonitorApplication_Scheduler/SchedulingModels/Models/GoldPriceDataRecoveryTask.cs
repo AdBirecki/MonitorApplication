@@ -26,7 +26,7 @@ namespace MonitorApplication_Scheduler.SchedulingModels.Models
         {
             _loggerFactory = loggerFactory;
             _httpClient = goldPriceClient;
-            _logger = _loggerFactory.CreateLogger<string>();
+            _logger = _loggerFactory.CreateLogger<GoldPriceDataRecoveryTask>();
             _commandDispatcher = commandDispatcher;
         }
 

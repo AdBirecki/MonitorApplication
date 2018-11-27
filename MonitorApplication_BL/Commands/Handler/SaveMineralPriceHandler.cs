@@ -6,6 +6,7 @@ using MonitorApplication_BL.Commands.RegisterCommand;
 using MonitorApplication_Models.OrderModel;
 using MonitorApplication_Models.Units;
 using MonitorApplication_USERS_DAL.Contexts;
+using MonitorApplication_Utilities.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -39,10 +40,10 @@ namespace MonitorApplication_BL.Commands.Handler
                 SilverChange = command.PriceData.ChgXag,
                 GoldClose = command.PriceData.XauClose,
                 SilverClose = command.PriceData.XagClose,
-                GoldPcExchange= command.PriceData.PcXau,
-                SilverPcExchange= command.PriceData.PcXag,
+                GoldPcExchange = command.PriceData.PcXau,
+                SilverPcExchange = command.PriceData.PcXag,
                 Currency = ConvertToEnumCurrency(command.PriceData.Currency),
-                TimeOfRegistration = new DateTime(command.PriceDataTimestamp),
+                TimeOfRegistration = command.PriceDataTimestamp.GetDateTime(),
                 Timestamp =command.PriceDataTimestamp
             };
 

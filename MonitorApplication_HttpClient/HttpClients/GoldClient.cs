@@ -35,7 +35,12 @@ namespace MonitorApplicationHttpClient
             }
             catch (HttpRequestException ex)
             {
-                _logger.LogError($"An error occured connecting to gold API {ex}");
+                _logger.LogError($"An error occured while to connecting to web API {ex}");
+                return default(T);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"A general error occured while connecting to web API {ex}");
                 return default(T);
             }
         }

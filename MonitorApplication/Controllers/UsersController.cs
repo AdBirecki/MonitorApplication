@@ -29,7 +29,7 @@ namespace MonitorApplication.Controllers
         }
 
         [HttpPost]
-        [ServiceFilter(typeof(FilterWithDI))]
+        // [ServiceFilter(typeof(FilterWithDI))]
         public IActionResult PostUser([FromBody] RegisterUserCommand command)
         {
             _commandDispatcher.Execute(command);

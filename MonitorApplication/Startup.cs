@@ -81,7 +81,7 @@ namespace MonitorApplication
             }
 
             // app.UseHttpsRedirection();
-            // app.UseMvc();
+             app.UseMvc();
         }
     }
 }

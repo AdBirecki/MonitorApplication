@@ -19,11 +19,11 @@ namespace MonitorApplication.Controllers
 {
     [Route("api/[controller]/[Action]")]
     [ApiController]
-    public class MineralPriceController : ApiBaseController
+    public class MineralsController : ApiBaseController
     {
         private readonly ICommandDispatcher _commandDispatcher;
         private readonly IQueryDispatcher _queryDispatcher;
-        public MineralPriceController(
+        public MineralsController(
             ICommandDispatcher commandDispatcher,
             IQueryDispatcher queryDisaptcher)
         {
@@ -32,10 +32,11 @@ namespace MonitorApplication.Controllers
         }
 
         // GET api/values
-        [HttpGet]
-        public IActionResult GetMineralData([FromBody] RetriveMineralPricesQuery query)
+        [HttpPost]
+        public IActionResult GetPrices([FromBody] RetriveMineralPricesQuery query)
         {
-           IEnumerable<MineralPriceData> allMPD =  _queryDispatcher.Execute<RetriveMineralPricesQuery,IEnumerable<MineralPriceData>> (query);
+           IEnumerable<MineralPriceData> allMPD =  _queryDispatcher
+                .Execute<RetriveMineralPricesQuery,IEnumerable<MineralPriceData>> (query);
            return Ok(allMPD);
         }
 
