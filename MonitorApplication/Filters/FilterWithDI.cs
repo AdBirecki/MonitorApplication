@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace MonitorApplication.Filters
 {
+    /* This class is meant to test how DI behaves in .NET core. It has no other role right now. 
+     * I was simply trying to check if a Filter used as Attribute can be "constructor" injected.
+     * It seems it can using [ServiceFilter(typeof(FilterWithDI))] */
     public class FilterWithDI : IActionFilter
     {
         private readonly ILoggerFactory _loggerFactory;

@@ -10,9 +10,9 @@ namespace MonitorApplication_Models
     public class GoldDataDto
     {
 
-        [JsonConverter(typeof(TimeStampConverter))]
+        // [JsonConverter(typeof(TimeStampConverter))]
         [JsonProperty(TimeStampName)]
-        public DateTime TimeStamp { get; set; }
+        public long TimeStamp { get; set; }
 
 
         [JsonConverter(typeof(TimeStampConverter))]
