@@ -35,7 +35,8 @@ namespace MonitorApplication.Controllers
 
         [HttpPost]
         public async Task<IActionResult> UploadImages() {
-            if(!MultipartRequestHelper.IsMultipartContentType(Request.ContentType)) {
+
+            if (!MultipartRequestHelper.IsMultipartContentType(Request.ContentType)) {
                 return BadRequest($"Expected a multipart request, but got {Request.ContentType}");
             }
 

@@ -20,7 +20,9 @@ namespace MonitorApplication.Controllers
     {
         private readonly ICommandDispatcher _commandDispatcher;
         private readonly IQueryDispatcher _queryDispatcher;
-        public UsersController(ICommandDispatcher commandDispatcher, IQueryDispatcher queryDisaptcher)
+        public UsersController(
+            ICommandDispatcher commandDispatcher, 
+            IQueryDispatcher queryDisaptcher)
         {
             _commandDispatcher = commandDispatcher;
             _queryDispatcher = queryDisaptcher;
@@ -42,9 +44,9 @@ namespace MonitorApplication.Controllers
         }
 
         [HttpPost]
-        public IActionResult GetAllUsers([FromBody] RetriveAllUsersQuery query)
+        public IActionResult GetAllUsers([FromBody] RetriveUsersQuery query)
         {
-            IEnumerable allUsers = _queryDispatcher.Execute<RetriveAllUsersQuery, IEnumerable<User>>(query);
+            IEnumerable allUsers = _queryDispatcher.Execute<RetriveUsersQuery, IEnumerable<User>>(query);
             return Ok(allUsers);
         }
     }

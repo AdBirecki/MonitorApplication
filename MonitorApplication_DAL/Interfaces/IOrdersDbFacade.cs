@@ -1,4 +1,5 @@
-﻿using MonitorApplication_Models.UserModels;
+﻿using MonitorApplication_Models.OrderModel;
+using MonitorApplication_Models.UserModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,7 @@ namespace MonitorApplication_USERS_DAL.Interfaces
 
         IQueryable<PurchaseOrder> PurchaseOrders { get; }
 
+        IQueryable<MineralPriceData> MineraPriceData { get; }
         int SaveChanges();
 
         Task<int> SaveChangesAsync();

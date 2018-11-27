@@ -8,7 +8,9 @@ using MonitorApplication_BL.Commands.Interfaces;
 using MonitorApplication_BL.Commands.RegisterCommand;
 using MonitorApplication_BL.Queries.Handler;
 using MonitorApplication_BL.Queries.Interfaces;
+using MonitorApplication_BL.Queries.Queries;
 using MonitorApplication_BL.Queries.RetriveUserQueries;
+using MonitorApplication_Models.OrderModel;
 using MonitorApplication_Models.UserModels;
 
 namespace MonitorApplication_BL.Module
@@ -31,8 +33,12 @@ namespace MonitorApplication_BL.Module
                 .As<IQueryHandler<RetriveUserQuery, User>>()
                 .InstancePerDependency();
 
-            builder.RegisterType<RetriveAllUsersHandler>()
-                .As<IQueryHandler<RetriveAllUsersQuery, IEnumerable<User>>>()
+            builder.RegisterType<RetriveUsersHandler>()
+                .As<IQueryHandler<RetriveUsersQuery, IEnumerable<User>>>()
+                .InstancePerDependency();
+
+            builder.RegisterType<RetriveMineralPricesHandler>()
+                .As<IQueryHandler<RetriveMineralPricesQuery, IEnumerable<MineralPriceData>>>()
                 .InstancePerDependency();
         }
     }

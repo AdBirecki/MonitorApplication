@@ -5,6 +5,7 @@ using MonitorApplication_Models.UserModels;
 using MonitorApplication_USERS_DAL.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 
@@ -25,17 +26,16 @@ namespace MonitorApplication_BL.Queries.Handler
 
         public User Execute(RetriveUserQuery tQuery)
         {
-            User result = new User { Username = "Dummy User" };
+            User user = null;
             try
             {
-                IEnumerable<User> users = _orderDbfacade.Users;
-                User user = _orderDbfacade.Users.FirstOrDefault(u => u.Username.Equals(tQuery.UserName)) ;
-                return user;
+                user = _orderDbfacade.Users.FirstOrDefault(u => u.Username.Equals(tQuery.UserName)) ;
             }
-            catch (Exception ex) {
-                _logger.LogError($"User with a given username: { tQuery.UserName} Not found!");
+            catch (SqlException exception) {
+                string typeName = nameof(RetriveUserHandler);
+                _logger.Log(LogLevel.Error, $" {typeName} caused an exception { exception.Message} ");
             }
-            return result;
+            return user;
         }
     }
 }

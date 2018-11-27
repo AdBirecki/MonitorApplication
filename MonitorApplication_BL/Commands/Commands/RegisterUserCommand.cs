@@ -5,6 +5,7 @@ using MonitorApplication_BL.Commands.Interfaces;
 
 namespace MonitorApplication_BL.Commands.RegisterCommand
 {
+    /* Add new user */
     public class RegisterUserCommand : ICommand
     {
         public string UserName { get; set; }

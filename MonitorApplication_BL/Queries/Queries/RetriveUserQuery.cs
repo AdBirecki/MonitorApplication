@@ -6,6 +6,7 @@ using MonitorApplication_Models.UserModels;
 
 namespace MonitorApplication_BL.Queries.RetriveUserQueries
 {
+    /* Retrive user by name */
     public class RetriveUserQuery : IQuery<User>
     {
         public string UserName { get; set; }

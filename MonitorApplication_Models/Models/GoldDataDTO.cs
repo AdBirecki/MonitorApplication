@@ -9,24 +9,24 @@ namespace MonitorApplication_Models
 {
     public class GoldDataDto
     {
-
-        // [JsonConverter(typeof(TimeStampConverter))]
+        [JsonConverter(typeof(TimeStampConverter))]
         [JsonProperty(TimeStampName)]
         public long TimeStamp { get; set; }
 
 
         [JsonConverter(typeof(TimeStampConverter))]
         [JsonProperty(TimeStampJName)]
-        public DateTime TimeStampJ { get; set; }
+        public long TimeStampJ { get; set; }
 
         [JsonConverter(typeof(DateFormatConverter<string>))]
         public DateTime date { get; set; }
 
-        [JsonProperty("items")]
+        [JsonProperty(ItemsArray)]
         public IEnumerable<ChangeDto> Children { get; set; }
 
         private const string TimeStampName = "ts";
         private const string TimeStampJName = "tsj";
+        private const string ItemsArray = "items";
     }
     
 
