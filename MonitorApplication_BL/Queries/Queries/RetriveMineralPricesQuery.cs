@@ -9,6 +9,6 @@ namespace MonitorApplication_BL.Queries.Queries
 {
     public class RetriveMineralPricesQuery : IQuery<IEnumerable<MineralPriceData>>
     {
-         
+       public int EntriesCount { get; set; } = 10;
     }
 }

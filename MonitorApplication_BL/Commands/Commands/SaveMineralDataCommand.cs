@@ -13,9 +13,6 @@ namespace MonitorApplication_BL.Commands.Commands
         public ChangeDto PriceData;
         public long PriceDataTimestamp;
 
-        public SaveMineralDataCommand() {
-        }
-
         public SaveMineralDataCommand(ChangeDto mineralChange, long timestamp) {
             PriceData = mineralChange;
             PriceDataTimestamp = timestamp;

@@ -33,7 +33,7 @@ namespace MonitorApplication.Controllers
         public IActionResult PostUser([FromBody] RegisterUserCommand command)
         {
             _commandDispatcher.Execute(command);
-            return Ok("");
+            return Ok();
         }
 
         [HttpPost]
@@ -49,5 +49,7 @@ namespace MonitorApplication.Controllers
             IEnumerable allUsers = _queryDispatcher.Execute<RetriveUsersQuery, IEnumerable<User>>(query);
             return Ok(allUsers);
         }
+
+
     }
 }

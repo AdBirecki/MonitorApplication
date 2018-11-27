@@ -14,14 +14,13 @@ namespace MonitorApplication_BL.Queries.Handler
     public class RetriveMineralPricesHandler : IQueryHandler<RetriveMineralPricesQuery, IEnumerable<MineralPriceData>>
     {
         private readonly IOrdersDbFacade _orderDbfacade;
-        private readonly ILoggerFactory _loggerFactory;
         private readonly ILogger _logger;
 
         public RetriveMineralPricesHandler(
             ILoggerFactory loggerFactory,
             IOrdersDbFacade orderDbfacade)
         {
-            _logger = loggerFactory.CreateLogger<RetriveMineralPricesQuery>();
+            _logger = loggerFactory.CreateLogger<RetriveMineralPricesHandler>();
             _orderDbfacade = orderDbfacade;
         }
 
@@ -30,7 +29,10 @@ namespace MonitorApplication_BL.Queries.Handler
             IEnumerable<MineralPriceData> mineralData = null;
             try
             {
-                mineralData = _orderDbfacade.MineraPriceData?.ToList();
+                mineralData = _orderDbfacade.MineraPriceData?
+                    .OrderByDescending( mpd => mpd.Timestamp)
+                    .Take(tQuery.EntriesCount)
+                    .ToList();
             }
             catch (SqlException exception)
             {

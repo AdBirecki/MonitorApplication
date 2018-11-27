@@ -16,7 +16,6 @@ namespace MonitorApplication_BL.Commands.Handler
     public class SaveMineralPriceHandler : ICommandHandler<SaveMineralDataCommand>
     {
         private readonly OrdersDbContext _orderDbContext;
-        private readonly ILoggerFactory _loggerFactory;
         private readonly ILogger _logger;
 
         public SaveMineralPriceHandler(
@@ -24,8 +23,7 @@ namespace MonitorApplication_BL.Commands.Handler
             OrdersDbContext orderDbContext)
         {
             _orderDbContext = orderDbContext;
-            _loggerFactory = loggerFactory;
-            _logger = _loggerFactory.CreateLogger<SaveMineralPriceHandler>();
+            _logger = loggerFactory.CreateLogger<SaveMineralPriceHandler>();
         }
 
         public void Execute(SaveMineralDataCommand command)

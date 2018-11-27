@@ -14,7 +14,6 @@ namespace MonitorApplication_BL.Queries.Handler
     public  class RetriveUserHandler : IQueryHandler<RetriveUserQuery,User>
     {
         private readonly IOrdersDbFacade _orderDbfacade;
-        private readonly ILoggerFactory _loggerFactory;
         private readonly ILogger _logger;
 
         public RetriveUserHandler(
