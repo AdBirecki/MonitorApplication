@@ -25,6 +25,7 @@ using MonitorApplication_USERS_DAL.Contexts;
 using MonitorApplication_Utilities.Extensions;
 using MonitorApplication_USERS_DAL.Module;
 using Microsoft.AspNetCore.Http.Features;
+using MonitorApplication_DAL.Interfaces;
 
 namespace MonitorApplication
 {

@@ -73,8 +73,8 @@ namespace MonitorApplication.Controllers
         public IActionResult GetAllUsers([FromBody] RetriveUsersQuery query)
         {
             try {
-                IEnumerable allUsers = _queryDispatcher.Execute<RetriveUsersQuery, IEnumerable<User>>(query);
-                if (allUsers == null) {
+                IEnumerable<User> allUsers = _queryDispatcher.Execute<RetriveUsersQuery, IEnumerable<User>>(query);
+                if (allUsers == null || !allUsers.Any()) {
                     return BadRequest(NoUsersNotFound);
                 }
                 return Ok(allUsers);

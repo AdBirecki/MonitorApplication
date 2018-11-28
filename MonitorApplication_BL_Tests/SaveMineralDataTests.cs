@@ -16,7 +16,7 @@ namespace MonitorApplication_BL_Tests
 
         [SetUp]
         public void SetUp()
-        {  /* I have decided to instantiate changeDto's here. 
+        {  /*I have decided to instantiate changeDto's here. 
             In perfect world these would be read only bu since SetUp is not a constructor that is the way it is. */
             #region setting up changeDto's
             validChangeDto = new ChangeDto

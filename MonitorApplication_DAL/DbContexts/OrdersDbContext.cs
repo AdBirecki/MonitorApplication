@@ -14,11 +14,14 @@ namespace MonitorApplication_USERS_DAL.Contexts
 {
     public class OrdersDbContext : DbContext
     {
-        public DbSet<User> Users { get; set; }
-        public DbSet<UserOrders> UserOrders {get; set;}
-        public DbSet<PurchaseOrder> PurchaseOrders { get; set; }
-        public DbSet<AbstractOrder> AbstractOrders { get; set; }
-        public DbSet<MineralPriceData> MineralPriceData { get; set; }
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<UserOrders> UserOrders {get; set;}
+        public virtual DbSet<PurchaseOrder> PurchaseOrders { get; set; }
+        public virtual DbSet<AbstractOrder> AbstractOrders { get; set; }
+        public virtual DbSet<MineralPriceData> MineralPriceData { get; set; }
+
+        public OrdersDbContext() {
+        }
 
         public OrdersDbContext(DbContextOptions option) : base(option) {
         }

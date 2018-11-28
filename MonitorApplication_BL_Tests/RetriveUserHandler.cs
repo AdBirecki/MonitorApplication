@@ -8,5 +8,6 @@ namespace MonitorApplication_BL_Tests
     [TestFixture]
     class RetriveUserHandler
     {
+       
     }
 }

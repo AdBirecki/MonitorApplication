@@ -9,7 +9,6 @@ using MonitorApplication_BL.Commands.Interfaces;
 using MonitorApplication_BL.Commands.RegisterCommand;
 using MonitorApplication_Models.UserModels;
 using MonitorApplication_USERS_DAL.Contexts;
-using MonitorApplication_USERS_DAL.Interfaces;
 
 namespace MonitorApplication_BL.Commands.Handler
 {
