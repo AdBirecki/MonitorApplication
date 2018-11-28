@@ -7,8 +7,6 @@ using MonitorApplication_Scheduler.SchedulingModels.Accumulator;
 
 namespace MonitorApplication_Scheduler.SchedulingModels.Crontab
 {
-   
-    [Serializable]
     public sealed class CrontabFieldImpl : IObjectReference
     {
         public static readonly CrontabFieldImpl Minute = new CrontabFieldImpl(CrontabFieldKind.Minute, 0, 59, null);
@@ -226,11 +224,6 @@ namespace MonitorApplication_Scheduler.SchedulingModels.Crontab
             else
             {
                 var every = 1;
-
-                //
-                // Look for stepping first (e.g. */2 = every 2nd).
-                // 
-
                 var slashIndex = str.IndexOf("/", StringComparison.Ordinal);
 
                 if (slashIndex > 0)
@@ -239,22 +232,13 @@ namespace MonitorApplication_Scheduler.SchedulingModels.Crontab
                     str = str.Substring(0, slashIndex);
                 }
 
-                //
-                // Next, look for wildcard (*).
-                //
-
                 if (str.Length == 1 && str[0] == '*')
                 {
                     acc(-1, -1, every);
                     return;
                 }
 
-                //
-                // Next, look for a range of values (e.g. 2-10).
-                //
-
                 var dashIndex = str.IndexOf("-", StringComparison.Ordinal);
-
                 if (dashIndex > 0)
                 {
                     var first = ParseValue(str.Substring(0, dashIndex));
@@ -264,10 +248,7 @@ namespace MonitorApplication_Scheduler.SchedulingModels.Crontab
                     return;
                 }
 
-                //
-                // Finally, handle the case where there is only one number.
-                //
-
+    
                 var value = ParseValue(str);
 
                 if (every == 1)

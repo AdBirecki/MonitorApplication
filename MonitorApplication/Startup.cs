@@ -49,7 +49,7 @@ namespace MonitorApplication
             // get uri of server
             services.AddHttpClient<GoldClient>(client => client.BaseAddress = new Uri(Configuration["GoldDataUri"]));
             services.AddSingleton<IScheduledTask, GoldPriceDataRecoveryTask>();
-            services.AddScheduler((sender, args) => { args.SetObserved(); });
+            services.AddScheduler();
 
             var connection = Configuration.GetConnectionString("UsersDatabase");
             services.AddDbContext<OrdersDbContext>(options =>
@@ -71,7 +71,7 @@ namespace MonitorApplication
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             app.PrepareDatabase();
-            /* Logs Appear twice. It seems that goin back to NLog is a better idea  */
+            /* Logs Appear twice. It seems that going back to NLog is a better idea  */
             /*
             if (loggerFactory != null)
             {

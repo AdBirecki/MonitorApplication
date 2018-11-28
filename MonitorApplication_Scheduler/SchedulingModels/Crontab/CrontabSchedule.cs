@@ -4,7 +4,6 @@ using System.IO;
 
 namespace MonitorApplication_Scheduler.SchedulingModels.Crontab
 {
-    [Serializable]
     public sealed class CrontabSchedule
     {
         private static readonly char[] Separators = {' '};
@@ -70,10 +69,6 @@ namespace MonitorApplication_Scheduler.SchedulingModels.Crontab
             var hour = baseHour;
             var minute = baseMinute + 1;
 
-            //
-            // Minute
-            //
-
             minute = _minutes.Next(minute);
 
             if (minute == nil)
@@ -81,10 +76,6 @@ namespace MonitorApplication_Scheduler.SchedulingModels.Crontab
                 minute = _minutes.GetFirst();
                 hour++;
             }
-
-            //
-            // Hour
-            //
 
             hour = _hours.Next(hour);
 
@@ -98,10 +89,6 @@ namespace MonitorApplication_Scheduler.SchedulingModels.Crontab
             {
                 minute = _minutes.GetFirst();
             }
-
-            //
-            // Day
-            //
 
             day = _days.Next(day);
 
@@ -120,10 +107,6 @@ namespace MonitorApplication_Scheduler.SchedulingModels.Crontab
                 hour = _hours.GetFirst();
             }
 
-            //
-            // Month
-            //
-
             month = _months.Next(month);
 
             if (month == nil)
@@ -141,23 +124,6 @@ namespace MonitorApplication_Scheduler.SchedulingModels.Crontab
                 day = _days.GetFirst();
             }
 
-            //
-            // The day field in a cron expression spans the entire range of days
-            // in a month, which is from 1 to 31. However, the number of days in
-            // a month tend to be variable depending on the month (and the year
-            // in case of February). So a check is needed here to see if the
-            // date is a border case. If the day happens to be beyond 28
-            // (meaning that we're dealing with the suspicious range of 29-31)
-            // and the date part has changed then we need to determine whether
-            // the day still makes sense for the given year and month. If the
-            // day is beyond the last possible value, then the day/month part
-            // for the schedule is re-evaluated. So an expression like "0 0
-            // 15,31 * *" will yield the following sequence starting on midnight
-            // of Jan 1, 2000:
-            //
-            //  Jan 15, Jan 31, Feb 15, Mar 15, Apr 15, Apr 31, ...
-            //
-
             var dateChanged = day != baseDay || month != baseMonth || year != baseYear;
 
             if (day > 28 && dateChanged && day > Calendar.GetDaysInMonth(year, month))
@@ -173,10 +139,6 @@ namespace MonitorApplication_Scheduler.SchedulingModels.Crontab
 
             if (nextTime >= endTime)
                 return endTime;
-
-            //
-            // Day of week
-            //
 
             if (_daysOfWeek.Contains((int)nextTime.DayOfWeek))
                 return nextTime;

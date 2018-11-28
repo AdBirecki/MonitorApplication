@@ -4,7 +4,6 @@ using System.IO;
 
 namespace MonitorApplication_Scheduler.SchedulingModels.Crontab
 {
-    [Serializable]
     public sealed class CrontabField
     {
         private readonly BitArray _bits;
@@ -90,9 +89,6 @@ namespace MonitorApplication_Scheduler.SchedulingModels.Crontab
             {
                 if (start < 0)
                 {
-                    //
-                    // We're setting the entire range of values.
-                    //
 
                     if (interval <= 1)
                     {
@@ -107,9 +103,6 @@ namespace MonitorApplication_Scheduler.SchedulingModels.Crontab
                 }
                 else
                 {
-                    //
-                    // We're only setting a single value - check that it is in range.
-                    //
 
                     if (start < minValue)
                     {
@@ -128,10 +121,6 @@ namespace MonitorApplication_Scheduler.SchedulingModels.Crontab
             }
             else
             {
-                //
-                // For ranges, if the start is bigger than the end value then
-                // swap them over.
-                //
 
                 if (start > end)
                 {
@@ -168,19 +157,8 @@ namespace MonitorApplication_Scheduler.SchedulingModels.Crontab
 
             int i;
 
-            //
-            // Populate the _bits table by setting all the bits corresponding to
-            // the valid field values.
-            //
-
             for (i = start - minValue; i <= (end - minValue); i += interval)
                 _bits[i] = true;
-
-            //
-            // Make sure we remember the minimum value set so far Keep track of
-            // the highest and lowest values that have been added to this field
-            // so far.
-            //
 
             if (_minValueSet > start)
                 _minValueSet = start;

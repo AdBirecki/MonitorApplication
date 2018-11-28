@@ -14,16 +14,5 @@ namespace MonitorApplication_Scheduler.SchedulerExtensions
         {
             return services.AddSingleton<IHostedService, SchedulerHostedService>();
         }
-
-        public static IServiceCollection AddScheduler(
-            this IServiceCollection services,
-            EventHandler<UnobservedTaskExceptionEventArgs> unobservedTaskExceptionHandler)
-        {
-            return services.AddSingleton<IHostedService, SchedulerHostedService>(
-                serviceProvider =>
-            {
-                return new SchedulerHostedService(serviceProvider.GetServices<IScheduledTask>());
-            });
-        }
     }
 }
