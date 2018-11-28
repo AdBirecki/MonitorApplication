@@ -12,6 +12,7 @@ using MonitorApplication_Models.UserModels;
 
 namespace MonitorApplication_USERS_DAL.Contexts
 {
+    /* OrdersDbContext is used by CommandHandlers to perform write operations.*/
     public class OrdersDbContext : DbContext
     {
         public virtual DbSet<User> Users { get; set; }

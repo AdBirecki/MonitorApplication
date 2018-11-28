@@ -11,6 +11,7 @@ using MonitorApplication_BL.Queries.Interfaces;
 
 namespace MonitorApplication_BL.Module
 {
+    /* I have decided to split BL registrations into multiple modules. This one is responsible for dispatchers. */
     public class DispatcherModule : Autofac.Module
     {
         protected override void Load(ContainerBuilder builder)

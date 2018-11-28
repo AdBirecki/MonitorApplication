@@ -12,12 +12,10 @@ namespace MonitorApplication.Filters
      * It seems it can using [ServiceFilter(typeof(FilterWithDI))] */
     public class FilterWithDI : IActionFilter
     {
-        private readonly ILoggerFactory _loggerFactory;
         private readonly ILogger _logger;
 
         public FilterWithDI(ILoggerFactory loggerFactory) {
-            _loggerFactory = loggerFactory;
-            _logger = _loggerFactory.CreateLogger(nameof(FilterWithDI));
+            _logger = loggerFactory.CreateLogger(nameof(FilterWithDI));
         }
         public void OnActionExecuted(ActionExecutedContext context)
         {

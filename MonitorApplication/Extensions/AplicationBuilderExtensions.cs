@@ -11,6 +11,8 @@ namespace MonitorApplication_Utilities.Extensions
 {
     static class AplicationBuilderExtensions
     {
+        /* I run migrations here. Database Is not currently initialized with any data so user 
+         * has to wait for HttpClient to fill database. */
         public static IApplicationBuilder PrepareDatabase(this IApplicationBuilder app)
         {
             using (var serviceScope = app.ApplicationServices

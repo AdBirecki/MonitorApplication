@@ -15,7 +15,6 @@ namespace MonitorApplication_Scheduler.SchedulingModels.Models
     public class GoldPriceDataRecoveryTask : IScheduledTask
     {
         private readonly GoldClient _httpClient;
-        private readonly ILoggerFactory _loggerFactory;
         private readonly ILogger _logger;
         private readonly ICommandDispatcher _commandDispatcher;
 
@@ -24,9 +23,8 @@ namespace MonitorApplication_Scheduler.SchedulingModels.Models
             ILoggerFactory loggerFactory,
             ICommandDispatcher commandDispatcher)
         {
-            _loggerFactory = loggerFactory;
             _httpClient = goldPriceClient;
-            _logger = _loggerFactory.CreateLogger<GoldPriceDataRecoveryTask>();
+            _logger = loggerFactory.CreateLogger<GoldPriceDataRecoveryTask>();
             _commandDispatcher = commandDispatcher;
         }
 

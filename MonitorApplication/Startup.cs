@@ -46,6 +46,7 @@ namespace MonitorApplication
                 .AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
+            // get uri of server
             services.AddHttpClient<GoldClient>(client => client.BaseAddress = new Uri(Configuration["GoldDataUri"]));
             services.AddSingleton<IScheduledTask, GoldPriceDataRecoveryTask>();
             services.AddScheduler((sender, args) => { args.SetObserved(); });
@@ -70,11 +71,13 @@ namespace MonitorApplication
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             app.PrepareDatabase();
+            /* Logs Appear twice. It seems that goin back to NLog is a better idea  */
+            /*
             if (loggerFactory != null)
             {
-                loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-                loggerFactory.AddDebug();
-            }
+               // loggerFactory.AddConsole(Configuration.GetSection("Logging"));
+               // loggerFactory.AddDebug();
+            }*/
 
             if (env.IsDevelopment())
             {

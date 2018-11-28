@@ -30,7 +30,7 @@ namespace MonitorApplication_BL.Commands.Handler
         public void Execute(SaveMineralDataCommand command)
         {
             /* In ordinary case I would use AutoMapper to handle type conversion.
-             * Due to time limitations we need to live with this solution. For now.*/
+             * Due to time limitations we need to live with this solution. */
             MineralPriceData mineralPriceData = new MineralPriceData()
             {
                 GoldPrice = command.PriceData.XagPrice,

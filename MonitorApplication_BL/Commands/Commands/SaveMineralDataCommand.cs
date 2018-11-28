@@ -19,8 +19,9 @@ namespace MonitorApplication_BL.Commands.Commands
             PriceDataTimestamp = timestamp;
         }
 
-        /* I assume that time difference between request timestamp and current time should be less than a minute. In reality it should be much less than that. 
-         * There is always a possibility that remote server starts to supply us with invalid (old) data.*/
+        /* I assume that time difference between request timestamp and current time should be less than a minute. 
+         * In reality it should be less than that.  There is always a possibility that remote 
+         * server starts to supply us with invalid (old) data.*/
         public bool IsValid()
         {
             bool validationResult = false;

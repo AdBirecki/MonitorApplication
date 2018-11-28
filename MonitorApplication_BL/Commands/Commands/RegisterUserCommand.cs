@@ -5,7 +5,8 @@ using MonitorApplication_BL.Commands.Interfaces;
 
 namespace MonitorApplication_BL.Commands.RegisterCommand
 {
-    /* Add new user */
+    /* Command that handles user registration. This command contains
+     * logic necessary to validate command as well as Fields necessary for user creation.*/
     public class RegisterUserCommand : ICommand
     {
         public string UserName { get; set; }

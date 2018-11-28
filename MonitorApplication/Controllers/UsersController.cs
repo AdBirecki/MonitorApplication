@@ -21,7 +21,7 @@ namespace MonitorApplication.Controllers
         private readonly ICommandDispatcher _commandDispatcher;
         private readonly IQueryDispatcher _queryDispatcher;
         private const string UserNotFound = "User with specified username was not found!";
-        private const string NoUsersNotFound = "No users were found!";
+        private const string NoUsersWereFound = "No users were found!";
         private const string InvalidCommand = "Invalid command";
 
         public UsersController(
@@ -36,7 +36,7 @@ namespace MonitorApplication.Controllers
         [ServiceFilter(typeof(FilterWithDI))]
         public IActionResult PostUser([FromBody] RegisterUserCommand command)
         {
-            if (command.IsValid()) {
+            if (!command.IsValid()) {
                 return BadRequest(InvalidCommand);
             }
 
@@ -66,7 +66,6 @@ namespace MonitorApplication.Controllers
             {
                 return BadRequest(ex.Message);
             }
-            
         }
 
         [HttpPost]
@@ -75,7 +74,7 @@ namespace MonitorApplication.Controllers
             try {
                 IEnumerable<User> allUsers = _queryDispatcher.Execute<RetriveUsersQuery, IEnumerable<User>>(query);
                 if (allUsers == null || !allUsers.Any()) {
-                    return BadRequest(NoUsersNotFound);
+                    return BadRequest(NoUsersWereFound);
                 }
                 return Ok(allUsers);
             }

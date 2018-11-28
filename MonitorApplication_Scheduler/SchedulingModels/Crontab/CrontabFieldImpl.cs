@@ -7,7 +7,7 @@ using MonitorApplication_Scheduler.SchedulingModels.Accumulator;
 
 namespace MonitorApplication_Scheduler.SchedulingModels.Crontab
 {
-    /* https://blog.maartenballiauw.be/post/2017/08/01/building-a-scheduled-cache-updater-in-aspnet-core-2.html */
+   
     [Serializable]
     public sealed class CrontabFieldImpl : IObjectReference
     {
@@ -75,14 +75,10 @@ namespace MonitorApplication_Scheduler.SchedulingModels.Crontab
             get { return _maxValue - _minValue + 1; }
         }
 
-        #region IObjectReference Members
-
         object IObjectReference.GetRealObject(StreamingContext context)
         {
             return FromKind(Kind);
         }
-
-        #endregion
 
         public static CrontabFieldImpl FromKind(CrontabFieldKind kind)
         {

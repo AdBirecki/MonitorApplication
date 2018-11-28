@@ -15,6 +15,7 @@ using MonitorApplication_Models.UserModels;
 
 namespace MonitorApplication_BL.Module
 {
+    /* Registrations for BL were split into two modules. This one is responsible for handlers. */
     public class HandlerModule: Autofac.Module
     {
         protected override void Load(ContainerBuilder builder)
