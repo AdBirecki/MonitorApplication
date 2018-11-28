@@ -19,12 +19,12 @@ namespace MonitorApplication.Filters
         }
         public void OnActionExecuted(ActionExecutedContext context)
         {
-            _logger.LogInformation("OnActionAsync start");
+            _logger.LogInformation("OnActionExecuted ");
         }
 
         public void OnActionExecuting(ActionExecutingContext context)
         {
-            _logger.LogInformation("OnActionAsync end");
+            _logger.LogInformation("OnActionExecuting");
         }
 
         public async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)

@@ -56,6 +56,7 @@ namespace MonitorApplication_BL.Commands.Handler
             }
         }
 
+        /* Using MD5 for hashing. For security reasons more advanced algorithm should be used.*/
         private string ComputeHash(string password) {
                 using (var md5 = MD5.Create())
                 {
