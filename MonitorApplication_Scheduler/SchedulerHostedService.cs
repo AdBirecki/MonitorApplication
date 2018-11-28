@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 using MonitorApplication_Scheduler.SchedulingModels.Crontab;
 using MonitorApplication_Scheduler.SchedulingModels.Interfaces;
 using MonitorApplication_Scheduler.SchedulingModels.Models;
@@ -12,9 +13,13 @@ namespace MonitorApplication_Scheduler
     public class SchedulerHostedService : HostedService
     {
         private readonly  List<SchedulerTaskWrapper> _scheduledTasks = new List<SchedulerTaskWrapper>();
+        private readonly ILogger _logger;
+        private const string serviceName = nameof(SchedulerHostedService);
 
-        public SchedulerHostedService(IEnumerable<IScheduledTask> scheduledTasks)
+        public SchedulerHostedService(IEnumerable<IScheduledTask> scheduledTasks, ILoggerFactory loggerFactory)
         {
+            _logger = loggerFactory.CreateLogger<SchedulerHostedService>();
+
             DateTime referenceTime = DateTime.Now;
             foreach (var scheduledTask in scheduledTasks)
             {
@@ -58,13 +63,7 @@ namespace MonitorApplication_Scheduler
                         }
                         catch (Exception ex)
                         {
-                            var args = new UnobservedTaskExceptionEventArgs(
-                                ex as AggregateException ?? new AggregateException(ex));
-
-                            if (!args.Observed)
-                            {
-                                throw;
-                            }
+                            _logger.Log(LogLevel.Error, $" {serviceName} caused an error: {ex.Message} ");
                         }
                     },
                     cancellationToken);

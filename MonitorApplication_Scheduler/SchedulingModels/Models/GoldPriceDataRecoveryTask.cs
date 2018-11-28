@@ -35,7 +35,6 @@ namespace MonitorApplication_Scheduler.SchedulingModels.Models
             GoldDataDto goldData = await _httpClient.GetGoldValues<GoldDataDto>();
             ChangeDto dataChange = goldData.Children.FirstOrDefault();
 
-
             SaveMineralDataCommand saveGoldDataCommand = new SaveMineralDataCommand(dataChange, goldData.TimeStamp);
             if(saveGoldDataCommand.IsValid())
             {
