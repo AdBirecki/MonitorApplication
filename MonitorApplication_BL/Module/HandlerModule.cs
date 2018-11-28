@@ -23,24 +23,24 @@ namespace MonitorApplication_BL.Module
             //Commands 
             builder.RegisterType<RegisterUserHandler>()
                 .As<ICommandHandler<RegisterUserCommand>>()
-                .InstancePerDependency();
+                .InstancePerLifetimeScope();
 
             builder.RegisterType<SaveMineralPriceHandler>()
                 .As<ICommandHandler<SaveMineralDataCommand>>()
-                .InstancePerDependency();
+                .InstancePerLifetimeScope();
 
             //Queries
             builder.RegisterType<RetriveUserHandler>()
                 .As<IQueryHandler<RetriveUserQuery, User>>()
-                .InstancePerDependency();
+                .InstancePerLifetimeScope();
 
             builder.RegisterType<RetriveUsersHandler>()
                 .As<IQueryHandler<RetriveUsersQuery, IEnumerable<User>>>()
-                .InstancePerDependency();
+                .InstancePerLifetimeScope();
 
             builder.RegisterType<RetriveMineralPricesHandler>()
                 .As<IQueryHandler<RetriveMineralPricesQuery, IEnumerable<MineralPriceData>>>()
-                .InstancePerDependency();
+                .InstancePerLifetimeScope();
         }
     }
 }

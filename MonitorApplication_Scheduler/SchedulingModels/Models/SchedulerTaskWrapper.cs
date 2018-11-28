@@ -16,7 +16,6 @@ namespace MonitorApplication_Scheduler.SchedulingModels.Models
         {
             LastRunTime = NextRunTime;
             NextRunTime = Schedule.GetNextOccurrence(NextRunTime);
-            Console.WriteLine($" NextRunTime for task: {Task.GetType().Name} to {NextRunTime}");
         }
 
         public bool ShouldRun(DateTime currentTime)

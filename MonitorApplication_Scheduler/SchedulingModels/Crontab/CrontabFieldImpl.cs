@@ -42,11 +42,6 @@ namespace MonitorApplication_Scheduler.SchedulingModels.Crontab
 
         private CrontabFieldImpl(CrontabFieldKind kind, int minValue, int maxValue, string[] names)
         {
-            Debug.Assert(Enum.IsDefined(typeof(CrontabFieldKind), kind));
-            Debug.Assert(minValue >= 0);
-            Debug.Assert(maxValue >= minValue);
-            Debug.Assert(names == null || names.Length == (maxValue - minValue + 1));
-
             _kind = kind;
             _minValue = minValue;
             _maxValue = maxValue;
@@ -139,8 +134,6 @@ namespace MonitorApplication_Scheduler.SchedulingModels.Crontab
 
         private void FormatValue(int value, TextWriter writer, bool noNames)
         {
-            Debug.Assert(writer != null);
-
             if (noNames || _names == null)
             {
                 if (value >= 0 && value < 100)
@@ -161,9 +154,6 @@ namespace MonitorApplication_Scheduler.SchedulingModels.Crontab
 
         private static void FastFormatNumericValue(int value, TextWriter writer)
         {
-            Debug.Assert(value >= 0 && value < 100);
-            Debug.Assert(writer != null);
-
             if (value >= 10)
             {
                 writer.Write((char)('0' + (value / 10)));
@@ -195,24 +185,14 @@ namespace MonitorApplication_Scheduler.SchedulingModels.Crontab
 
         private static void ThrowParseException(Exception innerException, string str)
         {
-            Debug.Assert(str != null);
-            Debug.Assert(innerException != null);
-
             throw new FormatException(string.Format("'{0}' is not a valid crontab field expression.", str),
                 innerException);
         }
 
         private void InternalParse(string str, CrontabFieldAccumulator acc)
         {
-            Debug.Assert(str != null);
-            Debug.Assert(acc != null);
-
             if (str.Length == 0)
                 throw new FormatException("A crontab field value cannot be empty.");
-
-            //
-            // Next, look for a list of values (e.g. 1,2,3).
-            //
 
             var commaIndex = str.IndexOf(",", StringComparison.Ordinal);
 
@@ -257,8 +237,6 @@ namespace MonitorApplication_Scheduler.SchedulingModels.Crontab
                 }
                 else
                 {
-                    Debug.Assert(every != 0);
-
                     acc(value, _maxValue, every);
                 }
             }
@@ -266,8 +244,6 @@ namespace MonitorApplication_Scheduler.SchedulingModels.Crontab
 
         private int ParseValue(string str)
         {
-            Debug.Assert(str != null);
-
             if (str.Length == 0)
                 throw new FormatException("A crontab field value cannot be empty.");
 

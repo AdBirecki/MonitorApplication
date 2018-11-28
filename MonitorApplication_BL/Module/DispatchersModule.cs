@@ -19,11 +19,11 @@ namespace MonitorApplication_BL.Module
             builder
                 .RegisterType<CommandDispatcher>()
                 .As<ICommandDispatcher>()
-                .InstancePerDependency();
+                .InstancePerLifetimeScope();
 
             builder.RegisterType<QueryDispatcher>()
                 .As<IQueryDispatcher>()
-                .InstancePerDependency();
+                .InstancePerLifetimeScope();
         }
     }
 }
