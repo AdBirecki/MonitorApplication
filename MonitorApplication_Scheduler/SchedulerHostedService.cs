@@ -11,7 +11,6 @@ namespace MonitorApplication_Scheduler
 {
     public class SchedulerHostedService : HostedService
     {
-        public event EventHandler<UnobservedTaskExceptionEventArgs> UnobservedTaskException;
         private readonly  List<SchedulerTaskWrapper> _scheduledTasks = new List<SchedulerTaskWrapper>();
 
         public SchedulerHostedService(IEnumerable<IScheduledTask> scheduledTasks)
@@ -61,8 +60,6 @@ namespace MonitorApplication_Scheduler
                         {
                             var args = new UnobservedTaskExceptionEventArgs(
                                 ex as AggregateException ?? new AggregateException(ex));
-
-                            UnobservedTaskException?.Invoke(this, args);
 
                             if (!args.Observed)
                             {

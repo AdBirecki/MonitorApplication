@@ -22,9 +22,7 @@ namespace MonitorApplication_Scheduler.SchedulerExtensions
             return services.AddSingleton<IHostedService, SchedulerHostedService>(
                 serviceProvider =>
             {
-                var instance = new SchedulerHostedService(serviceProvider.GetServices<IScheduledTask>());
-                instance.UnobservedTaskException += unobservedTaskExceptionHandler;
-                return instance;
+                return new SchedulerHostedService(serviceProvider.GetServices<IScheduledTask>());
             });
         }
     }

@@ -30,7 +30,7 @@ namespace MonitorApplication_Models.OrderModel
 
         public double SilverClose { get; set; }
 
-        public long Timestamp { get; set; }
+        public double Timestamp { get; set; }
 
         public DateTime TimeOfRegistration { get; set; }
     }

@@ -28,5 +28,19 @@ namespace MonitorApplication_BL.Commands.RegisterCommand
             Name = name;
             Surname = surname;
         }
+
+        /* Simplified validation. I check for username and password length   */
+        public bool IsValid()
+        {
+            bool validationResult = false;
+
+            if (!string.IsNullOrEmpty(UserName) 
+                && !string.IsNullOrEmpty(Password) 
+                && Password.Length > 4  ) {
+                validationResult = true;
+            }
+
+            return validationResult;
+        }
     }
 }

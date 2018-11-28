@@ -14,4 +14,9 @@
     <PackageReference Include="NUnit3TestAdapter" Version="3.11.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MonitorApplicationUtilities\MonitorApplication_Utilities.csproj" />
+    <ProjectReference Include="..\MonitorApplication_BL\MonitorApplication_BL.csproj" />
+  </ItemGroup>
+
 </Project>

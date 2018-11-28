@@ -37,11 +37,15 @@ namespace MonitorApplication_Scheduler.SchedulingModels.Models
             GoldDataDto goldData = await _httpClient.GetGoldValues<GoldDataDto>();
             ChangeDto dataChange = goldData.Children.FirstOrDefault();
 
+
             SaveMineralDataCommand saveGoldDataCommand = new SaveMineralDataCommand(dataChange, goldData.TimeStamp);
-            _commandDispatcher.Execute(saveGoldDataCommand);
+            if(saveGoldDataCommand.IsValid())
+            {
+                _commandDispatcher.Execute(saveGoldDataCommand);
+            }
 
             double goldValue = dataChange?.XauPrice ?? 0;
-            _logger.LogWarning($" Gold Data Received at : {DateTime.UtcNow} is {goldValue}");
+            _logger.LogWarning($" Gold Data Received at : {DateTime.Now} is {goldValue}");
         }
     }
 }
