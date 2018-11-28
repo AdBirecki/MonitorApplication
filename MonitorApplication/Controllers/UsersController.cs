@@ -20,6 +20,9 @@ namespace MonitorApplication.Controllers
     {
         private readonly ICommandDispatcher _commandDispatcher;
         private readonly IQueryDispatcher _queryDispatcher;
+        private const string UserNotFound = "User with specified username was not found!";
+        private const string NoUsersNotFound = "No users were found!";
+
         public UsersController(
             ICommandDispatcher commandDispatcher, 
             IQueryDispatcher queryDisaptcher)
@@ -29,27 +32,52 @@ namespace MonitorApplication.Controllers
         }
 
         [HttpPost]
-        // [ServiceFilter(typeof(FilterWithDI))]
+        [ServiceFilter(typeof(FilterWithDI))]
         public IActionResult PostUser([FromBody] RegisterUserCommand command)
         {
-            _commandDispatcher.Execute(command);
+            try
+            {
+               _commandDispatcher.Execute(command);
+            }
+            catch (Exception ex) {
+                return BadRequest(ex.Message);
+            }
+
             return Ok();
         }
 
         [HttpPost]
         public IActionResult GetUser([FromBody] RetriveUserQuery query)
         {
-            User user = _queryDispatcher.Execute<RetriveUserQuery,User>(query);
-            return Ok(user);
+            try {
+                User user = _queryDispatcher.Execute<RetriveUserQuery, User>(query);
+                if (user == null) {
+                    return BadRequest(UserNotFound);
+                }
+
+                return Ok(user);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            
         }
 
         [HttpPost]
         public IActionResult GetAllUsers([FromBody] RetriveUsersQuery query)
         {
-            IEnumerable allUsers = _queryDispatcher.Execute<RetriveUsersQuery, IEnumerable<User>>(query);
-            return Ok(allUsers);
+            try {
+                IEnumerable allUsers = _queryDispatcher.Execute<RetriveUsersQuery, IEnumerable<User>>(query);
+                if (allUsers == null) {
+                    return BadRequest(NoUsersNotFound);
+                }
+                return Ok(allUsers);
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            } 
         }
-
-
     }
 }

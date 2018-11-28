@@ -54,7 +54,7 @@ namespace MonitorApplication
                 options.UseSqlServer(connection, b => b.MigrationsAssembly("MonitorApplication_DAL")));
 
             // filters
-            // services.AddScoped<FilterWithDI>();
+            services.AddScoped<FilterWithDI>();
 
             ContainerBuilder container = new ContainerBuilder();
             container.Populate(services);
@@ -80,7 +80,6 @@ namespace MonitorApplication
                 app.UseDeveloperExceptionPage();
             }
 
-            // app.UseHttpsRedirection();
              app.UseMvc();
         }
     }

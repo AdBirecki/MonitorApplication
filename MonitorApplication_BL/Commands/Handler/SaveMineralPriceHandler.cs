@@ -17,6 +17,7 @@ namespace MonitorApplication_BL.Commands.Handler
     {
         private readonly OrdersDbContext _orderDbContext;
         private readonly ILogger _logger;
+        private const string handlerName = nameof(SaveMineralPriceHandler);
 
         public SaveMineralPriceHandler(
             ILoggerFactory loggerFactory,
@@ -52,8 +53,13 @@ namespace MonitorApplication_BL.Commands.Handler
             }
             catch (DbUpdateException exception)
             {
-                string typeName = nameof(SaveMineralPriceHandler);
-                _logger.Log(LogLevel.Error, $" {typeName} caused an exception { exception.Message} ");
+                _logger.Log(LogLevel.Error, $" {handlerName} caused an DbUpdateException { exception.Message} ");
+                throw;
+            }
+            catch (Exception exception)
+            {
+                _logger.Log(LogLevel.Error, $" {handlerName} caused an Exception { exception.Message} ");
+                throw;
             }
         }
 

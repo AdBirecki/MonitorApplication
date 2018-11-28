@@ -23,6 +23,8 @@ namespace MonitorApplication.Controllers
     {
         private readonly ICommandDispatcher _commandDispatcher;
         private readonly IQueryDispatcher _queryDispatcher;
+        private const string  NoMpdMessage = " No mineral price data found!";
+
         public MineralsController(
             ICommandDispatcher commandDispatcher,
             IQueryDispatcher queryDisaptcher)
@@ -34,9 +36,20 @@ namespace MonitorApplication.Controllers
         [HttpPost]
         public IActionResult GetPrices([FromBody] RetriveMineralPricesQuery query)
         {
-           IEnumerable<MineralPriceData> mpdCollection =  _queryDispatcher
-                .Execute<RetriveMineralPricesQuery,IEnumerable<MineralPriceData>> (query);
-           return Ok(mpdCollection);
+            IEnumerable<MineralPriceData> MpdCollection = null;
+            try {
+                MpdCollection = _queryDispatcher
+                    .Execute<RetriveMineralPricesQuery, IEnumerable<MineralPriceData>>(query);
+                if (MpdCollection == null) {
+                    return BadRequest(NoMpdMessage);
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+           return Ok(MpdCollection);
         }
 
     }

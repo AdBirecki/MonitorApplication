@@ -15,6 +15,7 @@ namespace MonitorApplication_BL.Queries.Handler
     {
         private readonly IOrdersDbFacade _orderDbfacade;
         private readonly ILogger _logger;
+        private const string HandlerName = nameof(RetriveUsersHandler);
 
         public RetriveUsersHandler(
             ILoggerFactory loggerFactory, 
@@ -29,13 +30,18 @@ namespace MonitorApplication_BL.Queries.Handler
             IEnumerable<User> userList = null;
             try
             {
-                 userList = _orderDbfacade.Users?.ToList();
+                userList = _orderDbfacade.Users?.ToList();
             }
             catch (SqlException exception)
             {
-                string typeName = nameof(RetriveUsersHandler);
-                _logger.Log(LogLevel.Error, $" {typeName} caused an exception { exception.Message} ");
+                _logger.Log(LogLevel.Error, $" {HandlerName} caused an SqlException { exception.Message} ");
+                throw;
             }
+            catch (Exception exception) {
+                _logger.Log(LogLevel.Error, $" {HandlerName} caused an Exception { exception.Message} ");
+                throw;
+            }
+
             return userList;
         }
     }

@@ -15,6 +15,7 @@ namespace MonitorApplication_BL.Queries.Handler
     {
         private readonly IOrdersDbFacade _orderDbfacade;
         private readonly ILogger _logger;
+        private const string HandlerName = nameof(RetriveMineralPricesHandler);
 
         public RetriveMineralPricesHandler(
             ILoggerFactory loggerFactory,
@@ -36,9 +37,15 @@ namespace MonitorApplication_BL.Queries.Handler
             }
             catch (SqlException exception)
             {
-                string typeName = nameof(RetriveMineralPricesHandler);
-                _logger.Log(LogLevel.Error, $" {typeName} caused an exception { exception.Message} ");
+                _logger.Log(LogLevel.Error, $" {HandlerName} caused an Sqlexception { exception.Message} ");
+                throw;
             }
+            catch (Exception exception)
+            {
+                _logger.Log(LogLevel.Error, $" {HandlerName} caused an Exception { exception.Message} ");
+                throw;
+            }
+
             return mineralData;
         }
     }

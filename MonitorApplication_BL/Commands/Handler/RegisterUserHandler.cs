@@ -17,6 +17,7 @@ namespace MonitorApplication_BL.Commands.Handler
     {
         private readonly OrdersDbContext _orderDbContext;
         private readonly ILogger _logger;
+        const string handlerName = nameof(RegisterUserCommand);
 
         public RegisterUserHandler(ILoggerFactory loggerFactory, OrdersDbContext orderDbContext )
         {
@@ -34,10 +35,11 @@ namespace MonitorApplication_BL.Commands.Handler
 
             try
             {
-                if (_orderDbContext.Users.Any( (registeredUser) => registeredUser.Username.Equals(user.Username))) {
-                     string typeName = nameof(RegisterUserCommand);
-                    _logger.Log(LogLevel.Error, $" {typeName} caused an exception User with {user.Username} already exists!");
-                    return;
+                if (_orderDbContext.Users.Any((registeredUser) => registeredUser.Username.Equals(user.Username)))
+                {
+                    string exceptionMessage = $"{handlerName} caused an exception User with {user.Username} already exists!";
+                    _logger.Log(LogLevel.Error, exceptionMessage);
+                    throw new ArgumentException(exceptionMessage);
                 }
 
                 _orderDbContext.Users.Add(user);
@@ -45,8 +47,13 @@ namespace MonitorApplication_BL.Commands.Handler
             }
             catch (DbUpdateException exception)
             {
-                string typeName = nameof(RegisterUserCommand);
-                _logger.Log(LogLevel.Error, $" {typeName} caused an exception { exception.Message} ");
+                _logger.Log(LogLevel.Error, $" {handlerName} database update caused an DbUpdateException {exception.Message} ");
+                throw;
+            }
+            catch (Exception exception)
+            {
+                _logger.Log(LogLevel.Error, $" {handlerName} database update caused an Exception {exception.Message} ");
+                throw;
             }
         }
 
