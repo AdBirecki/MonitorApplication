@@ -44,7 +44,7 @@ namespace MonitorApplication_BL_Tests
         [Test]
         public void CheckValidTimeStamp() {
 
-            double validTimeStamp = DateTime.Now.GetDateTimeNoEpoch();
+            double validTimeStamp = DateTime.Now.AddSeconds(-30).GetDateTimeNoEpoch();
             SaveMineralDataCommand command = new SaveMineralDataCommand(validChangeDto, validTimeStamp);
             bool isValid = command.IsValid();
 
