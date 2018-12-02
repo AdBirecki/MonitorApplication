@@ -171,7 +171,9 @@ namespace MonitorApplication_Scheduler.SchedulingModels.Crontab
 
         public bool Contains(int value)
         {
-            return _bits[ValueToIndex(value)];
+		//TODO clean this up without hotfix  !!! this code breaks app on Sundays!!! Honestly...
+            value = ValueToIndex(value) >= 0 ? ValueToIndex(value) : 0;
+            return _bits[value];
         }
 
         public void Format(TextWriter writer)
