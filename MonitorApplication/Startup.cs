@@ -26,7 +26,7 @@ using MonitorApplication_Utilities.Extensions;
 using MonitorApplication_USERS_DAL.Module;
 using Microsoft.AspNetCore.Http.Features;
 using MonitorApplication_DAL.Interfaces;
-
+// test commit from new PC
 namespace MonitorApplication
 {
     public class Startup
